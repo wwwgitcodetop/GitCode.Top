@@ -1,5 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GitCode.Top</title><link>https://gitcode.top</link><description>一只敏捷的棕色狐狸跳过一只懒惰的狗。</description><copyright>GitCode.Top</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.com/fluidicon.png</url><title>avatar</title><link>https://gitcode.top</link></image><lastBuildDate>Fri, 28 Jun 2024 14:57:44 +0000</lastBuildDate><managingEditor>GitCode.Top</managingEditor><ttl>60</ttl><webMaster>GitCode.Top</webMaster><item><title>AI在内容创作中的崛起与挑战 [AI]</title><link>https://gitcode.top/post/12.html</link><description>Title: AI在内容创作中的崛起与挑战&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GitCode.Top</title><link>https://gitcode.top</link><description>一只敏捷的棕色狐狸跳过一只懒惰的狗。</description><copyright>GitCode.Top</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.com/fluidicon.png</url><title>avatar</title><link>https://gitcode.top</link></image><lastBuildDate>Fri, 28 Jun 2024 17:04:38 +0000</lastBuildDate><managingEditor>GitCode.Top</managingEditor><ttl>60</ttl><webMaster>GitCode.Top</webMaster><item><title>使用 PowerShell 创建 SSH 密钥并添加到 GitHub</title><link>https://gitcode.top/post/13.html</link><description># 使用 PowerShell 创建 SSH 密钥并添加到 GitHub&#13;
+&#13;
+## 1. 创建 SSH 密钥&#13;
+&#13;
+首先，右键 `开始` 按钮打开 `PowerShell` （终端）并按照以下步骤操作：&#13;
+&#13;
+### 1.1 生成 SSH 密钥&#13;
+直接执行以下命令：&#13;
+&#13;
+```bash&#13;
+ssh-keygen -t rsa -b 4096 -C 'info@example.com'&#13;
+```&#13;
+&#13;
+将 `info@example.com` 替换为您在 GitHub 上注册的邮箱地址，&#13;
+然后可以一路按回车键，如果没有错误信息，那么密钥就会生成在默认路径 `C:\Users\example\.ssh\id_rsa`，&#13;
+其中的 `example` 为您的系统用户名。</description><guid isPermaLink="true">https://gitcode.top/post/13.html</guid><pubDate>Fri, 28 Jun 2024 17:04:05 +0000</pubDate></item><item><title>AI在内容创作中的崛起与挑战 [AI]</title><link>https://gitcode.top/post/12.html</link><description>Title: AI在内容创作中的崛起与挑战&#13;
 Date: 2024-06-28&#13;
 Author: ChatGPT&#13;
 ---&#13;
