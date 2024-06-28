@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GitCode.Top</title><link>https://gitcode.top</link><description>一只敏捷的棕色狐狸跳过一只懒惰的狗。</description><copyright>GitCode.Top</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.com/fluidicon.png</url><title>avatar</title><link>https://gitcode.top</link></image><lastBuildDate>Fri, 28 Jun 2024 05:34:05 +0000</lastBuildDate><managingEditor>GitCode.Top</managingEditor><ttl>60</ttl><webMaster>GitCode.Top</webMaster><item><title>注册 US.KG 免费域名并托管到 Cloudflare</title><link>https://gitcode.top/post/10.html</link><description>## 1. 打开 US.KG 的网站&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GitCode.Top</title><link>https://gitcode.top</link><description>一只敏捷的棕色狐狸跳过一只懒惰的狗。</description><copyright>GitCode.Top</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.com/fluidicon.png</url><title>avatar</title><link>https://gitcode.top</link></image><lastBuildDate>Fri, 28 Jun 2024 05:34:44 +0000</lastBuildDate><managingEditor>GitCode.Top</managingEditor><ttl>60</ttl><webMaster>GitCode.Top</webMaster><item><title>Gmeek快速上手 [转载]</title><link>https://gitcode.top/post/11.html</link><description># 转载&#13;
+&gt;本文原地址：[https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html](https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html)&#13;
+&#13;
+---&#13;
+&#13;
+[Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。</description><guid isPermaLink="true">https://gitcode.top/post/11.html</guid><pubDate>Fri, 28 Jun 2024 05:34:20 +0000</pubDate></item><item><title>注册 US.KG 免费域名并托管到 Cloudflare</title><link>https://gitcode.top/post/10.html</link><description>## 1. 打开 US.KG 的网站&#13;
 打开链接 [https://nic.us.kg/](https://nic.us.kg/) 后，点击左下角的蓝色按钮`REGISTER A NEW DOMAIN`（注册新域名），会跳转到新页面&#13;
 建议启用网站翻译，&#13;
 &#13;
