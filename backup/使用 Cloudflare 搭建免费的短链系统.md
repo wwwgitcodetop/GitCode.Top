@@ -5,10 +5,9 @@
 <details>
   <summary>《点击这里查看图片》</summary>
 
-  ![2_4](https://dwl.pages.dev/doce/2_4.png)
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f325f342e706e67.png">`
 
-  ![2_5](https://dwl.pages.dev/doce/2_5.png)
-
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f325f352e706e67.png">`
 </details>
 
 ### 利用 Cloudflare Pages 部署
@@ -27,22 +26,21 @@
   <summary>6. 点击这里查看创建数据库操作的图示</summary>
 
   (1) 进入 Cloudflare 的控制台，查看左侧侧边栏，选择 `Workers 和 Pages` 展开菜单后再选择 [D1](https://dash.cloudflare.com/?to=/:account/workers/d1)：
-  ![4](https://dwl.pages.dev/doce/4.png)
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f342e706e67.png">`
 
   (2) 在 `D1` 页面点击右上角的 `创建数据库` 以打开创建数据库菜单：
-  ![4_1](https://dwl.pages.dev/doce/4_1.png)
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f312e706e67.png">`
 
-  ![4_2](https://dwl.pages.dev/doce/4_2.png)
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f322e706e67.png">`
 
   (3) 填写 `数据库名称` 输入框，名称随意，确保绑定是为同一个数据库即可，下方的位置选项可不选（这里已经填好，示范）：
-  ![4_3](https://dwl.pages.dev/doce/4_3.png)
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f332e706e67.png">`
 
 
   (4) 完成数据库创建，接下来在数据库的操作页面，请点击 `控制台`，并查看主部署教程的下一步（第7步）：
-  ![4_4](https://dwl.pages.dev/doce/4_4.png)
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f342e706e67.png">`
 
-  ![4_5](https://dwl.pages.dev/doce/4_5.png)
-
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f352e706e67.png">`
 </details>
 
 7. 在数据库控制台输入框粘贴下面语句（或使用根目录的 `short.sql` 文件）执行 `SQLite` 的命令创建表执行即可。
@@ -89,14 +87,13 @@ CREATE UNIQUE INDEX banUrl_index ON banUrl(url);
   <summary>《点击这里查看绑定操作的图示》</summary>
 
   (1) 打开具体项目的控制台：
-  ![1](https://dwl.pages.dev/doce/1.png)
-
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f312e706e67.png">`
 
   (2) 进入设置找到函数选项并向下拉：
-  ![2](https://dwl.pages.dev/doce/2.png)
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f322e706e67.png">`
 
   (3) 找到D1数据库绑定，编辑，变量名称填“DB”，D1数据库选择刚刚创建的数据库（这里已经填好，示范）：
-  ![3](https://dwl.pages.dev/doce/3.png)
+  `Gmeek-html<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f332e706e67.png">`
 </details>
 
 9. 重新部署项目以刷新数据，完成。
