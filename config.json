@@ -1,6 +1,18 @@
 {
-    "title":"Blog Title",
-    "subTitle":"Blog description",
-    "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
-    "GMEEK_VERSION":"last"
+    "title":"GitCode.Top",
+    "subTitle":"一只敏捷的棕色狐狸跳过一只懒惰的狗。",
+    "avatarUrl":"https://github.com/fluidicon.png",
+    "GMEEK_VERSION":"last",
+    "displayTitle":"分享代码的博客",
+    "homeUrl":"https://gitcode.top",
+    "faviconUrl":"https://pages.cloudflare.com/favicon.ico",
+    "startSite":"06/27/2024",
+    "onePageListNum":10,
+    "i18n":"CN",
+    "UTC":8,
+    "urlMode":"issue",
+    "showPostSource":1,
+    "rssSplit":"sentence",
+    "bottomText":"转载请标明出处，谢谢合作！",
+    "ogImage":"https://avatars.githubusercontent.com/u/174083156"
 }
