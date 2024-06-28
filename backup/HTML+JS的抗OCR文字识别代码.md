@@ -12,7 +12,7 @@ GitHub地址：[https://github.com/molikai-work/OCR-Interference](https://github
 
 干扰图像：（失真级别2、波频4、波幅3、随机点数量100、随机线数量20）
 
-![image2](https://molikai-work.github.io/OCR-Interference/image2.png)
+`Gmeek-html<img src="https://file.gitcode.top/doce/issues-2/68747470733a2f2f6d6f6c696b61692d776f726b2e6769746875622e696f2f4f43522d496e746572666572656e63652f696d616765322e706e67.png">`
 
 ##源代码
 可以直接复制到本地运行，新建文件后重命名扩展名为`.html`
