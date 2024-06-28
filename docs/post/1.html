@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://pages.cloudflare.com/favicon.ico"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="## 介绍
+
+一个使用 Cloudflare Pages 创建的免费 URL 缩短/短链服务。">
+<meta property="og:title" content="使用 Cloudflare 搭建免费的短链系统">
+<meta property="og:description" content="## 介绍
+
+一个使用 Cloudflare Pages 创建的免费 URL 缩短/短链服务。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitcode.top/post/1.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/174083156">
+<title>使用 Cloudflare 搭建免费的短链系统</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">使用 Cloudflare 搭建免费的短链系统</h1>
+<div class="title-right">
+    <a href="https://gitcode.top" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/wwwgitcodetop/wwwgitcodetop.github.io/issues/1" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h2>介绍</h2>
+<p>一个使用 Cloudflare Pages 创建的免费 URL 缩短/短链服务。</p>
+<details>
+  <summary>《点击这里查看图片》</summary>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7e315476402270830f478050e7078e42f4458367bef20a340bc901c6a9b0bd55/68747470733a2f2f64776c2e70616765732e6465762f646f63652f325f342e706e67"><img src="https://camo.githubusercontent.com/7e315476402270830f478050e7078e42f4458367bef20a340bc901c6a9b0bd55/68747470733a2f2f64776c2e70616765732e6465762f646f63652f325f342e706e67" alt="2_4" data-canonical-src="https://dwl.pages.dev/doce/2_4.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a1fbdbe260155426ad1ad80cedadd9b65d74f4a2fa0371ab4b6dc3c7d5664fb8/68747470733a2f2f64776c2e70616765732e6465762f646f63652f325f352e706e67"><img src="https://camo.githubusercontent.com/a1fbdbe260155426ad1ad80cedadd9b65d74f4a2fa0371ab4b6dc3c7d5664fb8/68747470733a2f2f64776c2e70616765732e6465762f646f63652f325f352e706e67" alt="2_5" data-canonical-src="https://dwl.pages.dev/doce/2_5.png" style="max-width: 100%;"></a></p>
+</details>
+<h3>利用 Cloudflare Pages 部署</h3>
+<ol>
+<li>
+<p>在GitHub Fork 分叉项目 : <a href="https://github.com/molikai-work/short">https://github.com/molikai-work/short</a>。</p>
+</li>
+<li>
+<p>登录到<a href="https://dash.cloudflare.com/" rel="nofollow">Cloudflare</a>控制台。</p>
+</li>
+<li>
+<p>在帐户主页中，选择 <a href="https://dash.cloudflare.com/?to=/:account/workers-and-pages" rel="nofollow">Workers 和 Pages</a> -&gt; <code class="notranslate"> 创建应用程序</code> -&gt; <code class="notranslate">Pages</code> -&gt; <code class="notranslate">连接到 Git</code>。（Cloudflare 支持多种语言，推荐将语言显示设置为与本教程相同的语言）</p>
+</li>
+<li>
+<p>选择你创建的项目存储库，在 <code class="notranslate">设置构建和部署</code> 部分中，全部默认即可，不需要修改框架预设、构建命令等内容。</p>
+</li>
+<li>
+<p>点击 <code class="notranslate">保存并部署</code> ，稍等片刻，短链服务就部署好了。</p>
+</li>
+</ol>
+<details>
+  <summary>6. 点击这里查看创建数据库操作的图示</summary>
+<p>(1) 进入 Cloudflare 的控制台，查看左侧侧边栏，选择 <code class="notranslate">Workers 和 Pages</code> 展开菜单后再选择 <a href="https://dash.cloudflare.com/?to=/:account/workers/d1" rel="nofollow">D1</a>：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/83340f6a20ffb91103e6d07007e49681e1a3b40e3852b1c4050fd2ff41e2bb2c/68747470733a2f2f64776c2e70616765732e6465762f646f63652f342e706e67"><img src="https://camo.githubusercontent.com/83340f6a20ffb91103e6d07007e49681e1a3b40e3852b1c4050fd2ff41e2bb2c/68747470733a2f2f64776c2e70616765732e6465762f646f63652f342e706e67" alt="4" data-canonical-src="https://dwl.pages.dev/doce/4.png" style="max-width: 100%;"></a></p>
+<p>(2) 在 <code class="notranslate">D1</code> 页面点击右上角的 <code class="notranslate">创建数据库</code> 以打开创建数据库菜单：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ed0ca86ac572c9a14fde80725c49f6c96314e8c733a6f812f5d77eff7a10e61c/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f312e706e67"><img src="https://camo.githubusercontent.com/ed0ca86ac572c9a14fde80725c49f6c96314e8c733a6f812f5d77eff7a10e61c/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f312e706e67" alt="4_1" data-canonical-src="https://dwl.pages.dev/doce/4_1.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d6823e7e724a4eac47237d0eed236785a15f71de8a43b44c7ab9876f3cd328c7/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f322e706e67"><img src="https://camo.githubusercontent.com/d6823e7e724a4eac47237d0eed236785a15f71de8a43b44c7ab9876f3cd328c7/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f322e706e67" alt="4_2" data-canonical-src="https://dwl.pages.dev/doce/4_2.png" style="max-width: 100%;"></a></p>
+<p>(3) 填写 <code class="notranslate">数据库名称</code> 输入框，名称随意，确保绑定是为同一个数据库即可，下方的位置选项可不选（这里已经填好，示范）：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/53ebcaacd61b2756fba240e7597ec1f9ca38a0700b19b684a5c018a6e9a76580/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f332e706e67"><img src="https://camo.githubusercontent.com/53ebcaacd61b2756fba240e7597ec1f9ca38a0700b19b684a5c018a6e9a76580/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f332e706e67" alt="4_3" data-canonical-src="https://dwl.pages.dev/doce/4_3.png" style="max-width: 100%;"></a></p>
+<p>(4) 完成数据库创建，接下来在数据库的操作页面，请点击 <code class="notranslate">控制台</code>，并查看主部署教程的下一步（第7步）：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cf5226ba611e30071c6619297a0c2017eeedba9ac004316241d687b167f2717d/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f342e706e67"><img src="https://camo.githubusercontent.com/cf5226ba611e30071c6619297a0c2017eeedba9ac004316241d687b167f2717d/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f342e706e67" alt="4_4" data-canonical-src="https://dwl.pages.dev/doce/4_4.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7d4880ef3a9ca04a9fe1f982f81f61f45e10904890e507a37118e7334f0b252b/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f352e706e67"><img src="https://camo.githubusercontent.com/7d4880ef3a9ca04a9fe1f982f81f61f45e10904890e507a37118e7334f0b252b/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f352e706e67" alt="4_5" data-canonical-src="https://dwl.pages.dev/doce/4_5.png" style="max-width: 100%;"></a></p>
+</details>
+<ol start="7">
+<li>在数据库控制台输入框粘贴下面语句（或使用根目录的 <code class="notranslate">short.sql</code> 文件）执行 <code class="notranslate">SQLite</code> 的命令创建表执行即可。</li>
+</ol>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">DROP</span> <span class="pl-k">TABLE</span> IF EXISTS links;
+<span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS links (
+  <span class="pl-s"><span class="pl-pds">`</span>id<span class="pl-pds">`</span></span> <span class="pl-k">integer</span> <span class="pl-k">PRIMARY KEY</span> <span class="pl-k">NOT NULL</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>url<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>slug<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>email<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>ua<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>ip<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>status<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>hostname<span class="pl-pds">`</span></span> <span class="pl-k">text</span> ,
+  <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> <span class="pl-k">DATE</span>
+);
+<span class="pl-k">DROP</span> <span class="pl-k">TABLE</span> IF EXISTS logs;
+<span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS logs (
+  <span class="pl-s"><span class="pl-pds">`</span>id<span class="pl-pds">`</span></span> <span class="pl-k">integer</span> <span class="pl-k">PRIMARY KEY</span> <span class="pl-k">NOT NULL</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>url<span class="pl-pds">`</span></span> <span class="pl-k">text</span> ,
+  <span class="pl-s"><span class="pl-pds">`</span>slug<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>referer<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>ua<span class="pl-pds">`</span></span> <span class="pl-k">text</span> ,
+  <span class="pl-s"><span class="pl-pds">`</span>ip<span class="pl-pds">`</span></span> <span class="pl-k">text</span> ,
+  <span class="pl-s"><span class="pl-pds">`</span>status<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>hostname<span class="pl-pds">`</span></span> <span class="pl-k">text</span> ,
+  <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> <span class="pl-k">DATE</span>
+);
+<span class="pl-k">DROP</span> <span class="pl-k">TABLE</span> IF EXISTS banUrl;
+<span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS banUrl (
+  <span class="pl-s"><span class="pl-pds">`</span>id<span class="pl-pds">`</span></span> <span class="pl-k">INTEGER</span> <span class="pl-k">PRIMARY KEY</span> <span class="pl-k">NOT NULL</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>url<span class="pl-pds">`</span></span> <span class="pl-k">TEXT</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> <span class="pl-k">TEXT</span> DEFAULT (strftime(<span class="pl-s"><span class="pl-pds">'</span>%Y-%m-%dT%H:%M:%SZ<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>now<span class="pl-pds">'</span></span>))
+
+);
+<span class="pl-k">CREATE</span> <span class="pl-k">UNIQUE INDEX</span> <span class="pl-en">links_index</span> <span class="pl-k">ON</span> links(slug);
+<span class="pl-k">CREATE</span> <span class="pl-k">INDEX</span> <span class="pl-en">logs_index</span> <span class="pl-k">ON</span> logs(slug);
+<span class="pl-k">CREATE</span> <span class="pl-k">UNIQUE INDEX</span> <span class="pl-en">banUrl_index</span> <span class="pl-k">ON</span> banUrl(url);</pre></div>
+<ol start="8">
+<li>选择部署完成项目，前往 Cloudflare Pages 项目控制面板依次点击<code class="notranslate">设置</code>-&gt;<code class="notranslate">函数</code>-&gt;<code class="notranslate">D1 数据库绑定</code>-&gt;<code class="notranslate">编辑绑定</code>-&gt;添加变量，变量名称填写：<code class="notranslate">DB</code> -&gt; D1 数据库选择 <code class="notranslate">你刚刚创建好的 D1 数据库</code></li>
+</ol>
+<details>
+  <summary>《点击这里查看绑定操作的图示》</summary>
+<p>(1) 打开具体项目的控制台：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b573d0857ae720f75bdc894f9fd2bef40360b1ce923bae8b8bc72b5c7db163a6/68747470733a2f2f64776c2e70616765732e6465762f646f63652f312e706e67"><img src="https://camo.githubusercontent.com/b573d0857ae720f75bdc894f9fd2bef40360b1ce923bae8b8bc72b5c7db163a6/68747470733a2f2f64776c2e70616765732e6465762f646f63652f312e706e67" alt="1" data-canonical-src="https://dwl.pages.dev/doce/1.png" style="max-width: 100%;"></a></p>
+<p>(2) 进入设置找到函数选项并向下拉：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/66985104e66ce209d4da0211b405f2b92bfc1b1ec8b31dc10e0b698a115606e1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f322e706e67"><img src="https://camo.githubusercontent.com/66985104e66ce209d4da0211b405f2b92bfc1b1ec8b31dc10e0b698a115606e1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f322e706e67" alt="2" data-canonical-src="https://dwl.pages.dev/doce/2.png" style="max-width: 100%;"></a></p>
+<p>(3) 找到D1数据库绑定，编辑，变量名称填“DB”，D1数据库选择刚刚创建的数据库（这里已经填好，示范）：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/08c27041a6b52548664ce6f47c9ce3626b60d664cd9a8c1970f566d4c1d48391/68747470733a2f2f64776c2e70616765732e6465762f646f63652f332e706e67"><img src="https://camo.githubusercontent.com/08c27041a6b52548664ce6f47c9ce3626b60d664cd9a8c1970f566d4c1d48391/68747470733a2f2f64776c2e70616765732e6465762f646f63652f332e706e67" alt="3" data-canonical-src="https://dwl.pages.dev/doce/3.png" style="max-width: 100%;"></a></p>
+</details>
+<ol start="9">
+<li>重新部署项目以刷新数据，完成。</li>
+</ol>
+<h3>配置数据表</h3>
+<p>你可以向 Cloudflare 的 D1 数据库的已创建短链数据库中的 <code class="notranslate">banUrl</code> 数据表添加数据以设置黑名单域名。</p>
+<p>在此数据表中的域名均无法创建/解析短链。</p>
+<p>请直接在数据表的 <code class="notranslate">url</code> 项添加要加黑名单的一级域名，如 <code class="notranslate">example.com</code> ，其他的数据项会自动填写。</p>
+<h3>配置环境变量</h3>
+<p>你可以在 Cloudflare Pages 项目控制面板<code class="notranslate">设置</code>-&gt;<code class="notranslate">环境变量</code>-&gt;<code class="notranslate">制作</code>-&gt;<code class="notranslate">为生产环境定义变量</code>中配置以下环境变量。</p>
+<p>所有环境变量全部都是可选配置的，不配置则执行默认的相关函数，不影响正常使用。</p>
+<table role="table">
+<thead>
+<tr>
+<th>变量名称</th>
+<th>示例值</th>
+<th>可选</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHORT_DOMAINS</td>
+<td>example.com</td>
+<td>是的</td>
+<td>短链生成后的显示域名（主域名），没有变量则默认自动获取当前域名</td>
+</tr>
+<tr>
+<td>DIRECT_DOMAINS</td>
+<td>example.com,example.org</td>
+<td>是的</td>
+<td>直链域名，设置后使用该域名访问则直接 302 重定向跳转，而不是默认的 JS 跳转，多个用逗号分割，没有变量则默认不启用直链跳转</td>
+</tr>
+<tr>
+<td>ALLOW_DOMAINS</td>
+<td>example.com,example.org</td>
+<td>是的</td>
+<td>允许解析目标地址的域名白名单，设置后只能使用该域名解析目标地址，否则拒绝请求，多个用逗号分割，没有变量则默认不启用允许解析域名白名单</td>
+</tr>
+</tbody>
+</table>
+<h3>通过 API 生成</h3>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> POST /create</span>
+curl -X POST -H <span class="pl-s"><span class="pl-pds">"</span>Content-Type: application/json<span class="pl-pds">"</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"url":"https://example.com"}<span class="pl-pds">'</span></span> https://c1n.top/create
+
+<span class="pl-c"><span class="pl-c">#</span> 指定 slug</span>
+curl -X POST -H <span class="pl-s"><span class="pl-pds">"</span>Content-Type: application/json<span class="pl-pds">"</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"url":"https://example.com","slug":"1example"}<span class="pl-pds">'</span></span> https://c1n.top/create
+
+<span class="pl-c"><span class="pl-c">#</span> 指定 email</span>
+curl -X POST -H <span class="pl-s"><span class="pl-pds">"</span>Content-Type: application/json<span class="pl-pds">"</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"url":"https://example.com","email":"info@example.com"}<span class="pl-pds">'</span></span> https://c1n.top/create
+</pre></div>
+<blockquote>
+<p>响应:</p>
+</blockquote>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ent">"slug"</span>: <span class="pl-s"><span class="pl-pds">"</span>1example<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"link"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://c1n.top/1example<span class="pl-pds">"</span></span>
+}</pre></div>
+<h3>信息修改</h3>
+<p>您可以修改程序页面底部的版权声明，如改为“Copyright © 2024 Example. All rights reserved.”，但还请声明/保留此程序的来源、作者及所在仓库地址。</p>
+<p>您可以快捷修改文件 <code class="notranslate">functions/[id].js</code> 中的 <code class="notranslate">shortName</code>、<code class="notranslate">htmlHead</code>和<code class="notranslate">footer</code> 及其他常量值来统一编辑短链跳转相关页面显示文本。从标有注释“统一固定内容”字样的地方开始到结束。</p>
+<p>代码中包含的隐私政策或相关文件请按照实际信息修改。</p>
+<h3>数据表解释</h3>
+<blockquote>
+<p>表 <code class="notranslate">links</code> 短链记录</p>
+</blockquote>
+<ul>
+<li><code class="notranslate">id</code> 行数据在数据表中的唯一记录 ID</li>
+<li><code class="notranslate">url</code> 短链的目标 URL</li>
+<li><code class="notranslate">slug</code> 短链对应的唯一短 ID</li>
+<li><code class="notranslate">email</code> 用户可选提交的 Email 地址</li>
+<li><code class="notranslate">ua</code> 用户的浏览器标识（注：此数据依靠客户端标头，可篡改）</li>
+<li><code class="notranslate">ip</code> 用户的 IP 地址</li>
+<li><code class="notranslate">status</code> 短链的状态，默认为“1”，“-1”或“ban”为封禁、“1”为正常、“2”或“skip”为跳过黑名单</li>
+<li><code class="notranslate">hostname</code> 用户生成短链访问的主机名</li>
+<li><code class="notranslate">create_time</code> 短链生成时间</li>
+</ul>
+<blockquote>
+<p>表 <code class="notranslate">logs</code> 短链访问记录</p>
+</blockquote>
+<ul>
+<li><code class="notranslate">id</code> 行数据在数据表中的唯一记录 ID</li>
+<li><code class="notranslate">url</code> 访问的短链的目标 URL</li>
+<li><code class="notranslate">slug</code> 访问的短链对应的唯一短 ID</li>
+<li><code class="notranslate">referer</code> 访问短链的用户来源（注：此数据依靠客户端标头，可篡改）</li>
+<li><code class="notranslate">ua</code> 访问的用户的浏览器标识（注：此数据依靠客户端标头，可篡改）</li>
+<li><code class="notranslate">ip</code> 访问的用户的 IP 地址</li>
+<li><code class="notranslate">status</code> 访问的短链的状态，默认为“1”，“-1”或“ban”为封禁、“1”为正常、“2”或“skip”为跳过黑名单</li>
+<li><code class="notranslate">hostname</code> 用户访问短链所访问的主机名</li>
+<li><code class="notranslate">create_time</code> 用户访问短链的时间</li>
+</ul>
+<blockquote>
+<p>表 <code class="notranslate">banUrl</code> 域名黑名单</p>
+</blockquote>
+<ul>
+<li><code class="notranslate">id</code> 行数据在数据表中的唯一记录 ID</li>
+<li><code class="notranslate">url</code> 黑名单域名</li>
+<li><code class="notranslate">create_time</code> 黑名单添加时间</li>
+</ul></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载请标明出处，谢谢合作！</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://gitcode.top"> GitCode.Top </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if("06/27/2024"!=""){
+    var now=new Date();
+    var startSite=new Date("06/27/2024");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "myikxkfxzq");
+</script>
+
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","wwwgitcodetop/wwwgitcodetop.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "myikxkfxzq");
+</script>
+
+
+
+</html>
