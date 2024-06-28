@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GitCode.Top</title><link>https://gitcode.top</link><description>一只敏捷的棕色狐狸跳过一只懒惰的狗。</description><copyright>GitCode.Top</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.com/fluidicon.png</url><title>avatar</title><link>https://gitcode.top</link></image><lastBuildDate>Fri, 28 Jun 2024 05:24:12 +0000</lastBuildDate><managingEditor>GitCode.Top</managingEditor><ttl>60</ttl><webMaster>GitCode.Top</webMaster><item><title>使用 Cloudflare Workers 连接 D1 数据库</title><link>https://gitcode.top/post/9.html</link><description># D1-Workers&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GitCode.Top</title><link>https://gitcode.top</link><description>一只敏捷的棕色狐狸跳过一只懒惰的狗。</description><copyright>GitCode.Top</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.com/fluidicon.png</url><title>avatar</title><link>https://gitcode.top</link></image><lastBuildDate>Fri, 28 Jun 2024 05:34:05 +0000</lastBuildDate><managingEditor>GitCode.Top</managingEditor><ttl>60</ttl><webMaster>GitCode.Top</webMaster><item><title>注册 US.KG 免费域名并托管到 Cloudflare</title><link>https://gitcode.top/post/10.html</link><description>## 1. 打开 US.KG 的网站&#13;
+打开链接 [https://nic.us.kg/](https://nic.us.kg/) 后，点击左下角的蓝色按钮`REGISTER A NEW DOMAIN`（注册新域名），会跳转到新页面&#13;
+建议启用网站翻译，&#13;
+&#13;
+![image](https://file.gitcode.top/doce/issues-10/344001639-edd0ea83-c8f2-402a-895d-4c026a012b44.png)&#13;
+&#13;
+## 2. 注册 US.KG&#13;
+进入注册页面后，点击页面中间的`Sign up`（注册）按钮，进入新页面&#13;
+&#13;
+![image](https://file.gitcode.top/doce/issues-10/344002811-2bd648f0-0fca-4870-b681-f982cd067d7a.png)&#13;
+&#13;
+在账户注册信息页面，分别依次填入：&#13;
+&#13;
+&gt; [!TIP]&#13;
+&gt; 推荐使用相关生成身份信息的网站来填写以下信息，例如 [https://www.meiguodizhi.com/](https://www.meiguodizhi.com/)。</description><guid isPermaLink="true">https://gitcode.top/post/10.html</guid><pubDate>Fri, 28 Jun 2024 05:33:42 +0000</pubDate></item><item><title>使用 Cloudflare Workers 连接 D1 数据库</title><link>https://gitcode.top/post/9.html</link><description># D1-Workers&#13;
 这是一个基于 Cloudflare Workers 部署的，快捷连接 D1 数据库的程序，可当作 API 使用。</description><guid isPermaLink="true">https://gitcode.top/post/9.html</guid><pubDate>Fri, 28 Jun 2024 05:23:47 +0000</pubDate></item><item><title>你好，欢迎访问本站。</title><link>https://gitcode.top/post/8.html</link><description>这里是我的博客网站，使用了认为好用的 Gmeek 开源程序和Github Actions构建。</description><guid isPermaLink="true">https://gitcode.top/post/8.html</guid><pubDate>Fri, 28 Jun 2024 05:23:17 +0000</pubDate></item><item><title>使用 Cloudflare 搭建域名信息查询 API</title><link>https://gitcode.top/post/7.html</link><description># whoisXmlApi.com&#13;
 &#13;
 这是一个基于 Cloudflare Workers 部署的，获取域名信息的 API&#13;
