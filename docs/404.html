@@ -9,6 +9,7 @@
     <style>
         html,
         body {
+            font-family: sans-serif;
             padding: 0;
             margin: 0;
             width: 100%;
@@ -106,6 +107,48 @@
             bottom: 0px;
             font-size: 12px !important;
             color: #aaa !important;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+
+            .icon-offline {
+                content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABIAQMAAABvIyEEAAAABlBMVEUAAABTU1OoaSf/AAAAAXRSTlMAQObYZgAAAGxJREFUeF7tyMEJwkAQRuFf5ipMKxYQiJ3Z2nSwrWwBA0+DQZcdxEOueaePp9+dQZFB7GpUcURSVU66yVNFj6LFICatThZB6r/ko/pbRpUgilY0Cbw5sNmb9txGXUKyuH7eV25x39DtJXUNPQGJtWFV+BT/QAAAAABJRU5ErkJggg==");
+                position: relative;
+            }
+
+            .offline .interstitial-wrapper {
+                color: #e0e0e0;
+            }
+
+            #message h1 {
+                color: #e0e0e0;
+            }
+
+            #message p {
+                color: #e0e0e0;
+            }
+
+            #message p a,
+            p a:hover {
+                color: #bbb;
+            }
+
+            #message p span {
+                background: #444;
+                color: #e0e0e0;
+            }
+
+            #github {
+                color: #888 !important;
+            }
+
+            .controller {
+                background: rgba(18, 18, 18, 0.9);
+            }
         }
 
         @media (max-width: 420px) {
