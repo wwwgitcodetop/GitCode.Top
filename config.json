@@ -11,6 +11,8 @@
     "i18n":"CN",
     "UTC":8,
     "urlMode":"issue",
+    "style":"html{scroll-behavior:smooth;}",
+    "indexStyle":"html{scroll-behavior:smooth;}",
     "showPostSource":1,
     "rssSplit":"sentence",
     "bottomText":"转载请标明出处，谢谢合作！",
