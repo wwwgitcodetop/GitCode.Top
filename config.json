@@ -5,7 +5,7 @@
     "GMEEK_VERSION":"last",
     "displayTitle":"分享代码的博客",
     "homeUrl":"https://gitcode.top",
-    "faviconUrl":"https://avatars.githubusercontent.com/u/174083156",
+    "faviconUrl":"./favicon.ico",
     "startSite":"06/27/2024",
     "onePageListNum":10,
     "i18n":"CN",
