@@ -3,7 +3,7 @@
     "subTitle":"一只敏捷的棕色狐狸跳过一只懒惰的狗。",
     "avatarUrl":"https://avatars.githubusercontent.com/u/174083156",
     "GMEEK_VERSION":"last",
-    "displayTitle":"分享代码的博客",
+    "displayTitle":"一个分享代码的博客",
     "homeUrl":"https://gitcode.top",
     "faviconUrl":"https://avatars.githubusercontent.com/u/174083156",
     "startSite":"06/27/2024",
@@ -15,7 +15,7 @@
     "indexStyle":"<style>html{scroll-behavior:smooth;}</style>",
     "showPostSource":1,
     "rssSplit":"sentence",
-    "bottomText":"转载请标明出处，谢谢合作！",
+    "bottomText":"转载原创文章请标明出处，谢谢合作！",
     "ogImage":"https://avatars.githubusercontent.com/u/174083156",
-    "needComment":0
+    "needComment":1
 }
