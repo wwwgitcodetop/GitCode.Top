@@ -4,6 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />-->
     <link href="//file.gitcode.top/css/primer.css" rel="stylesheet" />
     <link rel="icon" href="./favicon.ico"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
@@ -135,8 +136,10 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 </div>
 <p>现在，您可以使用 SSH 协议与 GitHub 进行代码管理了，作者亲身经历使用 HTTPS 协议真的不好连接 GitHub 存储库。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请标明出处，谢谢合作！</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://gitcode.top"> GitCode.Top </a>
 <p>
@@ -200,6 +203,8 @@ console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

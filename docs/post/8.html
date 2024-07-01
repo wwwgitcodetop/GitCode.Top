@@ -4,6 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />-->
     <link href="//file.gitcode.top/css/primer.css" rel="stylesheet" />
     <link rel="icon" href="./favicon.ico"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
@@ -80,8 +81,10 @@ cloudflare、github、resend、google都是大善人。</p>
 <p>还不知道写些什么，就先这样吧。</p>
 <p>2024/06/29 00:02</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请标明出处，谢谢合作！</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://gitcode.top"> GitCode.Top </a>
 <p>
@@ -150,6 +153,8 @@ cmButton=document.getElementById("cmButton");
     span.setAttribute("class","Counter");
     span.innerHTML="1";
     cmButton.appendChild(span);
+
+
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");
