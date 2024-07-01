@@ -21,6 +21,9 @@
 通过Actions->build Gmeek->Run workflow->里面的按钮全局重新生成一次
 ```
 
+> [!NOTE]
+> 网友制作的视频教程：[https://www.bilibili.com/video/BV1GM4m1m7ZD/](https://www.bilibili.com/video/BV1GM4m1m7ZD/)
+
 ## 二、配置文件
 > [!TIP]
 >按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。
@@ -67,6 +70,8 @@
 "rssSplit":"sentence",
 "bottomText":"转载请注明出处",
 "ogImage":"https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg",
+"primerCSS":"<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />",
+"needComment":0,
 ```
 
 | 配置参数 | 说明 |
@@ -101,6 +106,8 @@
 | rssSplit | 设置RSS输出的截断符号，默认`sentence`为第一句话，可配置其他特殊符号 |
 | bottomText | 用于设置文章页面右下角显示的内容 |
 | ogImage | 用于设置Open Graph协议展示的图片 |
+| primerCSS | 用于设置primer.css的CDN地址，默认使用南科大 |
+| needComment | 用于设置是否需要评论功能，1开启评论，0关闭 |
 
 ## 三、常见问题
 ### 1. 搭建不成功
@@ -180,3 +187,5 @@ Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, i
 ---
 
 `Gmeek-html<img src="https://picsum.photos/200">`
+primerCSS	用于设置primer.css的CDN地址，默认使用[南科大](https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css)
+needComment	用于设置是否需要评论功能，1开启评论，0关闭
