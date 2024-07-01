@@ -5,7 +5,7 @@
     "GMEEK_VERSION":"last",
     "displayTitle":"分享代码的博客",
     "homeUrl":"https://gitcode.top",
-    "faviconUrl":"./favicon.ico",
+    "faviconUrl":"https://avatars.githubusercontent.com/u/174083156",
     "startSite":"06/27/2024",
     "onePageListNum":10,
     "i18n":"CN",
@@ -16,5 +16,6 @@
     "showPostSource":1,
     "rssSplit":"sentence",
     "bottomText":"转载请标明出处，谢谢合作！",
-    "ogImage":"https://avatars.githubusercontent.com/u/174083156"
+    "ogImage":"https://avatars.githubusercontent.com/u/174083156",
+    "needComment":0
 }
