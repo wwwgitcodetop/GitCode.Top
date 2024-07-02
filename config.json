@@ -17,6 +17,6 @@
     "indexScript":"<script defer src='//file.gitcode.top/analytics.gitcode.top/js/index.js' type='414f504a06096110cc930ee5-text/javascript'></script>",
     "showPostSource":1,
     "rssSplit":"sentence",
-    "bottomText":"转载原创文章请标明出处，谢谢合作！",
+    "bottomText":"转载原创文章请标明出处，谢谢合作！本页第<span id='page_pv'></span>次查看",
     "ogImage":"https://avatars.githubusercontent.com/u/174083156"
 }
