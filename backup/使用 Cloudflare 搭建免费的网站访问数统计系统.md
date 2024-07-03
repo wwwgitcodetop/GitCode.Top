@@ -31,9 +31,9 @@ npm install hono
 npx wrangler login
 ```
 
-### 创建 D1 数据库："web_analytics_2"
+### 创建 D1 数据库 "web_analytics_2"
 
-> 数据库名称为`web_analytics_2`，与`package.json`内保持一致
+> 数据库名称为 `web_analytics_2` ，与 `package.json` 内保持一致
 
 ```
 npx wrangler d1 create web_analytics_2
