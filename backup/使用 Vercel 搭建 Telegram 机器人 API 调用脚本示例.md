@@ -15,14 +15,14 @@ GitHub：[https://github.com/wwwgitcodetop/vercelTelegramRobot](https://github.c
 （请注意，这个机器人似乎并不是官方的，我不是在推荐使用这个机器人）
 
 ## 部署
-很简单的，你可以分叉这个[存储库](https://github.com/wwwgitcodetop/vercelTelegramRobot)，然后在 vercel 上部署新项目，选择本存储库，等待部署完成后即可。
+很简单的，你可以分叉这个[存储库](https://github.com/wwwgitcodetop/vercelTelegramRobot)，然后在 Vercel 上部署新项目，选择本存储库，等待部署完成后即可。
 
 或者快捷点击下面的按钮来一键部署。
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/wwwgitcodetop/vercelTelegramRobot)
 
 ## API 使用
-可以使用 vercel 默认分配的地址使用，向这个地址发送 POST 请求，内容为 JSON 格式，
+可以使用 Vercel 默认分配的地址使用，向这个地址发送 POST 请求，内容为 JSON 格式，
 
 例如：
 ```json
