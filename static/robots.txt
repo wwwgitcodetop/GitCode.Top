@@ -1,6 +1,5 @@
 User-agent: *
-Disallow: /tag
 Disallow: /*?*
 Disallow: /cdn-cgi
 
-# Sitemap: https://gitcode.top/rss.xml
+Sitemap: https://gitcode.top/rss.xml
