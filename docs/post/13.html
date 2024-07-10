@@ -10,20 +10,10 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="## 1. 创建 SSH 密钥
 
-首先，右键 `开始` 按钮打开 `PowerShell` （终端）并按照以下步骤操作：
-
-### 1.1 生成 SSH 密钥
-直接执行以下命令：
-
-```bash
-ssh-keygen -t rsa -b 4096 -C 'info@example.com'
-```
-
-将 `info@example.com` 替换为您在 GitHub 上注册的邮箱地址，
-然后可以一路按回车键，如果没有错误信息，那么密钥就会生成在默认路径 `C:\Users\example\.ssh\id_rsa`，
-其中的 `example` 为您的系统用户名。">
+<meta name="author" content="Wu Xaici">
+<meta name="keywords" content=" GitCode.Top, 博客">
+<meta name="description" content="一个分享代码的博客">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个分享代码的博客">
@@ -43,6 +33,7 @@ ssh-keygen -t rsa -b 4096 -C 'info@example.com'
 其中的 `example` 为您的系统用户名。">
 <meta property="og:url" content="https://gitcode.top/post/13.html">
 <meta property="og:image" content="https://file.gitcode.top/image/avatar.png">
+
 <title>使用 PowerShell 创建 SSH 密钥并添加到 GitHub</title>
 <link href="//file.gitcode.top/css/both.css" rel="stylesheet" />
 
