@@ -1,3 +1,5 @@
+利用 PowerShell 创建 SSH 密钥并添加到 GitHub，以便使用 SSH 协议拉取仓库与提交。
+
 ## 1. 创建 SSH 密钥
 
 首先，右键 `开始` 按钮打开 `PowerShell` （终端）并按照以下步骤操作：
