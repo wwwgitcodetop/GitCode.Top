@@ -9,7 +9,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="一只敏捷的棕色狐狸跳过一只懒惰的狗。">
+    <script src="https://file.gitcode.top/analytics.gitcode.top/js/index.min.js" async defer></script>
+<meta name="keywords" content="GitCode.Top, 博客, 分享, 代码">
+<meta name="description" content="一个分享代码的博客">
 <meta property="og:title" content="GitCode.Top">
 <meta property="og:description" content="一只敏捷的棕色狐狸跳过一只懒惰的狗。">
 <meta property="og:type" content="blog">
@@ -202,7 +204,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div class="pagination"><a class="previous_page" rel="previous" href="https://gitcode.top/index.html" aria-label="Previous Page">上一页</a><a class="next_page" rel="next" href="https://gitcode.top/page3.html" aria-label="Next Page">下一页</a></div>
 </nav>
 </div>
-    <div id="footer">Copyright © <span id="year"></span><a href="https://gitcode.top"> GitCode.Top </a>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://gitcode.top">GitCode.Top</a>
 <p>
 <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
 </p>
@@ -214,8 +216,8 @@ if("06/27/2024"!=""){
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
     document.getElementById("year").innerHTML=now.getFullYear();
-    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
-    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站已运行 "+diffDay+" 天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站已运行 "+diffDay+" 天"+" • ";}
 }
 </script>
 </div>

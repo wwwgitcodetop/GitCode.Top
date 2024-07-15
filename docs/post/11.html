@@ -9,6 +9,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
+    <script src="https://file.gitcode.top/analytics.gitcode.top/js/index.min.js" async defer></script>
+<meta name="author" content="Wu Xaici">
+<meta name="keywords" content="GitCode.Top, 博客">
 <meta name="description" content="# 转载
 >本文原地址：[https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html](https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html)
 
@@ -340,7 +343,7 @@ needComment	用于设置是否需要评论功能，1开启评论，0关闭</p></
 <div style="font-size:small;margin-top:8px;float:right;">转载原创文章请标明出处，谢谢合作！本页第<span id='page_pv'></span>次查看</div>
 
 </div>
-    <div id="footer">Copyright © <span id="year"></span><a href="https://gitcode.top"> GitCode.Top </a>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://gitcode.top">GitCode.Top</a>
 <p>
 <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
 </p>
@@ -352,8 +355,8 @@ if("06/27/2024"!=""){
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
     document.getElementById("year").innerHTML=now.getFullYear();
-    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
-    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站已运行 "+diffDay+" 天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站已运行 "+diffDay+" 天"+" • ";}
 }
 </script>
 </div>
@@ -397,6 +400,18 @@ document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 
 
 </script>
+
+<script src="https://file.gitcode.top/comment.gitcode.top/js/twikoo.all.min.js" crossorigin="anonymous" type="826c97b1ee00d178e7dc8b74-text/javascript"></script>
+<script>
+    twikoo.init({
+        envId: 'https://comment.gitcode.top',
+        el: '#tcomment',
+        // region: 'ap-guangzhou',
+        path: location.pathname,
+        lang: 'zh-CN',
+    })
+</script>
+
 
 
 </html>
