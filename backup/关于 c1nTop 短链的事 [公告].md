@@ -1,7 +1,9 @@
 [c1nTop短链](https://c1n.top/)是本博客站长部署的一个免费、简单、方便的网址缩短的服务。
 
-截止2024/07/15，c1nTop短链的主页：
-`Gmeek-html<img src="https://file.gitcode.top/doce/issues-22/471203744.png">`
+<details>
+<summary>截止2024/07/15，c1nTop短链的主页</summary>
+<img src="https://file.gitcode.top/doce/issues-22/471203744.png">
+</details>
 
 ## 介绍
 就目前而言，这个项目没有几个人在用，大部分都是我的朋友来的，但是这个项目肯定会好好运营下去的。
