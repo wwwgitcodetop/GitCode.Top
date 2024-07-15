@@ -4,17 +4,13 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />-->
-    <link href="//file.gitcode.top/css/primer.css" rel="stylesheet" />
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
     <link rel="icon" href="https://file.gitcode.top/favicon.ico"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-
-<meta name="keywords" content="GitCode.Top, 搜索, 归档, 标签">
-<meta name="description" content="这里是GitCode.Top的搜索归档页面，在这里查看所有文章和标签及搜索文章标题。">
-
-<title>GitCode.Top - Search/Tag</title>
+<meta name="description" content="GitCode.Top search page">
+<title>GitCode.Top - Tag</title>
 
 </head>
 <style>
@@ -23,9 +19,6 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
 </style>
-
-<script async src="//file.gitcode.top/analytics.gitcode.top/js/index.min.js"></script>
-
 
 <style>
 .tagTitle{margin:auto 0;font-size:40px;font-weight:bold;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
@@ -52,7 +45,6 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     .LabelTime{display:none;}
 }
 </style>
-
 
 
 <body>
@@ -95,8 +87,8 @@ if("06/27/2024"!=""){
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
     document.getElementById("year").innerHTML=now.getFullYear();
-    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站已运行 "+diffDay+" 天"+" • ";}
-    else{document.getElementById("runday").innerHTML="网站已运行 "+diffDay+" 天"+" • ";}
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
 }
 </script>
 </div>
@@ -132,15 +124,6 @@ function utterancesTheme(theme){
 if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
 </script>
-
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "myikxkfxzq");
-</script>
-
 
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
@@ -298,6 +281,5 @@ function searchShow(){
 }
 
 </script>
-
 
 </html>

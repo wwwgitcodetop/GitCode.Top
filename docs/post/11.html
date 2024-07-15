@@ -4,28 +4,27 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />-->
-    <link href="//file.gitcode.top/css/primer.css" rel="stylesheet" />
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
     <link rel="icon" href="https://file.gitcode.top/favicon.ico"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
+<meta name="description" content="# 转载
+>本文原地址：[https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html](https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html)
 
-<meta name="author" content="Wu Xaici">
-<meta name="keywords" content=" GitCode.Top, 博客">
-<meta name="description" content="一个分享代码的博客">
+---
 
-<meta property="og:type" content="article">
-<meta property="og:title" content="一个分享代码的博客">
+[Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。">
+<meta property="og:title" content="Gmeek快速上手 [转载]">
 <meta property="og:description" content="# 转载
 >本文原地址：[https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html](https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html)
 
 ---
 
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://gitcode.top/post/11.html">
 <meta property="og:image" content="https://file.gitcode.top/image/avatar.png">
-
 <title>Gmeek快速上手 [转载]</title>
 
 
@@ -36,9 +35,6 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
 </style>
-
-<script async src="//file.gitcode.top/analytics.gitcode.top/js/index.min.js"></script>
-
 
 <style>
 .postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
@@ -53,13 +49,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     body {padding: 8px;}
     .postTitle{font-size:24px;}
 }
-
-#tcomment {
-    margin-top: 16px;
-    margin-bottom: 3rem;
-}
 </style>
-
 <style>html{scroll-behavior:smooth;}</style><style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style><style>.markdown-alert.markdown-alert-tip {border-left-color:var(--borderColor-success-emphasis, var(--color-success-emphasis));background-color:var(--color-success-subtle);}.markdown-alert.markdown-alert-tip .markdown-alert-title {color: var(--fgColor-success,var(--color-success-fg));}</style><style>.markdown-alert.markdown-alert-important {border-left-color:var(--borderColor-done-emphasis, var(--color-done-emphasis));background-color:var(--color-done-subtle);}.markdown-alert.markdown-alert-important .markdown-alert-title {color: var(--fgColor-done,var(--color-done-fg));}</style><style>.markdown-alert.markdown-alert-warning {border-left-color:var(--borderColor-attention-emphasis, var(--color-attention-emphasis));background-color:var(--color-attention-subtle);}.markdown-alert.markdown-alert-warning .markdown-alert-title {color: var(--fgColor-attention,var(--color-attention-fg));}</style><style>.markdown-alert.markdown-alert-caution {border-left-color:var(--borderColor-danger-emphasis, var(--color-danger-emphasis));background-color:var(--color-danger-subtle);}.markdown-alert.markdown-alert-caution .markdown-alert-title {color: var(--fgColor-danger,var(--color-danger-fg));}</style>
 
 
@@ -80,6 +70,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
     </a>
+
 </div>
 </div>
     <div id="content">
@@ -346,13 +337,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p><img src="https://picsum.photos/200"><br>
 primerCSS	用于设置primer.css的CDN地址，默认使用<a href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css" rel="nofollow">南科大</a><br>
 needComment	用于设置是否需要评论功能，1开启评论，0关闭</p></div>
-<div style="font-size:small;margin-top:8px;margin-bottom:16;float:right;">转载原创文章请标明出处，谢谢合作！本页第<span id='page_pv'></span>次查看</div>
-
-
-
-<br>
-
-<div id="tcomment"></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载原创文章请标明出处，谢谢合作！本页第<span id='page_pv'></span>次查看</div>
 
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://gitcode.top"> GitCode.Top </a>
@@ -367,8 +352,8 @@ if("06/27/2024"!=""){
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
     document.getElementById("year").innerHTML=now.getFullYear();
-    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站已运行 "+diffDay+" 天"+" • ";}
-    else{document.getElementById("runday").innerHTML="网站已运行 "+diffDay+" 天"+" • ";}
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
 }
 </script>
 </div>
@@ -405,16 +390,6 @@ if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
 </script>
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "myikxkfxzq");
-</script>
-
-
-
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
@@ -422,18 +397,6 @@ document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 
 
 </script>
-
-<script src="https://file.gitcode.top/comment.gitcode.top/js/twikoo.all.min.js" crossorigin="anonymous"></script>
-<script>
-    twikoo.init({
-        envId: 'https://comment.gitcode.top', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-        el: '#tcomment', // 容器元素
-        // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-        path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-        lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
-    })
-</script>
-
 
 
 </html>
