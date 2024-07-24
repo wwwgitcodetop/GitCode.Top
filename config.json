@@ -6,6 +6,7 @@
     "displayTitle":"一个闲人做分享的博客",
     "homeUrl":"https://gitcode.top",
     "faviconUrl":"https://file.gitcode.top/favicon.ico",
+    "singlePage":["link"],
     "startSite":"06/27/2024",
     "onePageListNum":10,
     "i18n":"CN",
