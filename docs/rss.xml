@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GitCode.Top</title><link>https://gitcode.top</link><description>一只敏捷的棕色狐狸跳过一只懒惰的狗。</description><copyright>GitCode.Top</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://file.gitcode.top/image/avatar.png</url><title>avatar</title><link>https://gitcode.top</link></image><lastBuildDate>Wed, 24 Jul 2024 06:52:17 +0000</lastBuildDate><managingEditor>GitCode.Top</managingEditor><ttl>60</ttl><webMaster>GitCode.Top</webMaster><item><title>Gmeek右上角圆按钮配置 [转载]</title><link>https://gitcode.top/post/24.html</link><description># 转载&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GitCode.Top</title><link>https://gitcode.top</link><description>一只敏捷的棕色狐狸跳过一只懒惰的狗。</description><copyright>GitCode.Top</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://file.gitcode.top/image/avatar.png</url><title>avatar</title><link>https://gitcode.top</link></image><lastBuildDate>Wed, 24 Jul 2024 06:53:45 +0000</lastBuildDate><managingEditor>GitCode.Top</managingEditor><ttl>60</ttl><webMaster>GitCode.Top</webMaster><item><title>Gmeek亮暗主题配置方式 [转载]</title><link>https://gitcode.top/post/25.html</link><description># 转载&#13;
+&gt;本文原地址：[https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-liang-an-zhu-ti-pei-zhi-fang-shi.html](https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-liang-an-zhu-ti-pei-zhi-fang-shi.html)&#13;
+&#13;
+---&#13;
+&#13;
+这篇文章详细说一下目前Gmeek支持的亮暗主题配置方式，以及后续待改进之处。</description><guid isPermaLink="true">https://gitcode.top/post/25.html</guid><pubDate>Wed, 24 Jul 2024 06:53:16 +0000</pubDate></item><item><title>Gmeek右上角圆按钮配置 [转载]</title><link>https://gitcode.top/post/24.html</link><description># 转载&#13;
 &gt;本文原地址：[https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-you-shang-jiao-yuan-an-niu-pei-zhi.html](https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-you-shang-jiao-yuan-an-niu-pei-zhi.html)&#13;
 &#13;
 ---&#13;
