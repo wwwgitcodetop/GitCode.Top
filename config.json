@@ -15,7 +15,7 @@
     "urlMode":"issue",
     "style":"<style>html{scroll-behavior:smooth;}</style>",
     "indexStyle":"<style>html{scroll-behavior:smooth;}</style>",
-    "script":"<script src='https://file.gitcode.top/js/articletoc.js' async defer></script><script src='https://file.gitcode.top/js/lightbox.js' async></script>",
+    "script":"<script src='https://file.gitcode.top/js/articletoc.js' async></script><script src='https://file.gitcode.top/js/lightbox.js' async></script>",
     "showPostSource":0,
     "rssSplit":"。",
     "bottomText":"转载原创文章请标明出处，谢谢合作！本页第<span id='page_pv'></span>次查看",
