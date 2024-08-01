@@ -92,146 +92,146 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-s1"><span class="pl-c1">$</span>time_period</span> = <span class="pl-c1">120</span>; <span class="pl-c">// 时间段，单位为秒</span>
 
 <span class="pl-c">// 获取当前时间戳</span>
-<span class="pl-s1"><span class="pl-c1">$</span>current_time</span> = time();
+<span class="pl-s1"><span class="pl-c1">$</span>current_time</span> = <span class="pl-en">time</span>();
 
 <span class="pl-c">// 获取客户端 IP 地址</span>
-<span class="pl-s1"><span class="pl-c1">$</span>client_ip</span> = <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SERVER</span></span>[<span class="pl-s">'REMOTE_ADDR'</span>];
+<span class="pl-s1"><span class="pl-c1">$</span>client_ip</span> = <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SERVER</span></span>[<span class="pl-s">'<span class="pl-s">REMOTE_ADDR</span>'</span>];
 
 <span class="pl-c">// 设置存储限制信息的文件夹路径</span>
-<span class="pl-s1"><span class="pl-c1">$</span>folder_name</span> = <span class="pl-s">'rate_limit_'</span>;
+<span class="pl-s1"><span class="pl-c1">$</span>folder_name</span> = <span class="pl-s">'<span class="pl-s">rate_limit_</span>'</span>;
 
 <span class="pl-c">// 创建文件夹</span>
-<span class="pl-k">if</span> (!file_exists(<span class="pl-s1"><span class="pl-c1">$</span>folder_name</span>)) {
-    mkdir(<span class="pl-s1"><span class="pl-c1">$</span>folder_name</span>);
+<span class="pl-k">if</span> (!<span class="pl-en">file_exists</span>(<span class="pl-s1"><span class="pl-c1">$</span>folder_name</span>)) {
+    <span class="pl-en">mkdir</span>(<span class="pl-s1"><span class="pl-c1">$</span>folder_name</span>);
 }
 
 <span class="pl-c">// 设置存储限制信息的文件路径</span>
-<span class="pl-s1"><span class="pl-c1">$</span>filename</span> = <span class="pl-s1"><span class="pl-c1">$</span>folder_name</span> . <span class="pl-s">'/'</span> . <span class="pl-s">'rate_limit_'</span> . <span class="pl-s1"><span class="pl-c1">$</span>client_ip</span> . <span class="pl-s">'.txt'</span>;
+<span class="pl-s1"><span class="pl-c1">$</span>filename</span> = <span class="pl-s1"><span class="pl-c1">$</span>folder_name</span> . <span class="pl-s">'<span class="pl-s">/</span>'</span> . <span class="pl-s">'<span class="pl-s">rate_limit_</span>'</span> . <span class="pl-s1"><span class="pl-c1">$</span>client_ip</span> . <span class="pl-s">'<span class="pl-s">.txt</span>'</span>;
 
 <span class="pl-c">// 如果文件不存在，则创建文件并初始化限制信息</span>
-<span class="pl-k">if</span> (!file_exists(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>)) {
-    file_put_contents(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>, json_encode(<span class="pl-en">array</span>(<span class="pl-s">'requests'</span> =&gt; <span class="pl-c1">0</span>, <span class="pl-s">'last_request_time'</span> =&gt; <span class="pl-c1">0</span>)));
+<span class="pl-k">if</span> (!<span class="pl-en">file_exists</span>(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>)) {
+    <span class="pl-en">file_put_contents</span>(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>, <span class="pl-en">json_encode</span>(<span class="pl-en">array</span>(<span class="pl-s">'<span class="pl-s">requests</span>'</span> =&gt; <span class="pl-c1">0</span>, <span class="pl-s">'<span class="pl-s">last_request_time</span>'</span> =&gt; <span class="pl-c1">0</span>)));
 }
 
 <span class="pl-c">// 从文件中读取限制信息</span>
-<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span> = json_decode(file_get_contents(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>), <span class="pl-c1">true</span>);
+<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span> = <span class="pl-en">json_decode</span>(<span class="pl-en">file_get_contents</span>(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>), <span class="pl-c1">true</span>);
 
 <span class="pl-c">// 如果上次请求时间与当前时间超出时间段，则重置请求次数</span>
-<span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>current_time</span> - <span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'last_request_time'</span>] &gt; <span class="pl-s1"><span class="pl-c1">$</span>time_period</span>) {
-    <span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'requests'</span>] = <span class="pl-c1">0</span>;
+<span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>current_time</span> - <span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'<span class="pl-s">last_request_time</span>'</span>] &gt; <span class="pl-s1"><span class="pl-c1">$</span>time_period</span>) {
+    <span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'<span class="pl-s">requests</span>'</span>] = <span class="pl-c1">0</span>;
 }
 
 <span class="pl-c">// 如果请求次数超出限制，则返回错误信息</span>
-<span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'requests'</span>] &gt;= <span class="pl-s1"><span class="pl-c1">$</span>rate_limit</span>) {
-    header("<span class="pl-s">HTTP/1.1 429 Too Many Requests</span>");
-    header(<span class="pl-s">'Content-Type: application/json'</span>);
-    <span class="pl-k">echo</span> json_encode (
+<span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'<span class="pl-s">requests</span>'</span>] &gt;= <span class="pl-s1"><span class="pl-c1">$</span>rate_limit</span>) {
+    <span class="pl-en">header</span>(<span class="pl-s">"<span class="pl-s">HTTP/1.1 429 Too Many Requests</span>"</span>);
+    <span class="pl-en">header</span>(<span class="pl-s">'<span class="pl-s">Content-Type: application/json</span>'</span>);
+    <span class="pl-k">echo</span> <span class="pl-en">json_encode</span> (
         <span class="pl-en">array</span>(
-            <span class="pl-s">'code'</span> =&gt; <span class="pl-c1">429</span>,
-            <span class="pl-s">'msg'</span> =&gt; <span class="pl-s">'请求过多，请稍后再试'</span>,
-            <span class="pl-s">'time'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>current_time</span>
+            <span class="pl-s">'<span class="pl-s">code</span>'</span> =&gt; <span class="pl-c1">429</span>,
+            <span class="pl-s">'<span class="pl-s">msg</span>'</span> =&gt; <span class="pl-s">'<span class="pl-s">请求过多，请稍后再试</span>'</span>,
+            <span class="pl-s">'<span class="pl-s">time</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>current_time</span>
         ));
     exit;
 }
 
 <span class="pl-c">// 更新限制信息</span>
-<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'requests'</span>]++;
-<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'last_request_time'</span>] = <span class="pl-s1"><span class="pl-c1">$</span>current_time</span>;
+<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'<span class="pl-s">requests</span>'</span>]++;
+<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>[<span class="pl-s">'<span class="pl-s">last_request_time</span>'</span>] = <span class="pl-s1"><span class="pl-c1">$</span>current_time</span>;
 
 <span class="pl-c">// 存储更新后的限制信息到文件中</span>
-file_put_contents(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>, json_encode(<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>));
+<span class="pl-en">file_put_contents</span>(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>, <span class="pl-en">json_encode</span>(<span class="pl-s1"><span class="pl-c1">$</span>limit_info</span>));
 
 <span class="pl-c">// 初始化 JSON 数据数组</span>
 <span class="pl-s1"><span class="pl-c1">$</span>json_data</span> = <span class="pl-en">array</span>();
 
-<span class="pl-k">if</span> (empty(<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'name'</span>])) {
-    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'code'</span>] = <span class="pl-c1">500</span>;
-    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'msg'</span>] = "<span class="pl-s">请提供一个有效的 Minecraft 用户名</span>";
-    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'time'</span>] = time();
+<span class="pl-k">if</span> (<span class="pl-en">empty</span>(<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'<span class="pl-s">name</span>'</span>])) {
+    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>] = <span class="pl-c1">500</span>;
+    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">msg</span>'</span>] = <span class="pl-s">"<span class="pl-s">请提供一个有效的 Minecraft 用户名</span>"</span>;
+    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">time</span>'</span>] = <span class="pl-en">time</span>();
 } <span class="pl-k">else</span> {
-    <span class="pl-s1"><span class="pl-c1">$</span>mojang_uuid</span> = curl_get_https(<span class="pl-s">'https://api.mojang.com/users/profiles/minecraft/'</span> . <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'name'</span>]);
-    <span class="pl-s1"><span class="pl-c1">$</span>de_uuid</span> = json_decode(<span class="pl-s1"><span class="pl-c1">$</span>mojang_uuid</span>, <span class="pl-c1">true</span>);
+    <span class="pl-s1"><span class="pl-c1">$</span>mojang_uuid</span> = <span class="pl-en">curl_get_https</span>(<span class="pl-s">'<span class="pl-s">https://api.mojang.com/users/profiles/minecraft/</span>'</span> . <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'<span class="pl-s">name</span>'</span>]);
+    <span class="pl-s1"><span class="pl-c1">$</span>de_uuid</span> = <span class="pl-en">json_decode</span>(<span class="pl-s1"><span class="pl-c1">$</span>mojang_uuid</span>, <span class="pl-c1">true</span>);
 
-    <span class="pl-k">if</span> (!is_null(<span class="pl-s1"><span class="pl-c1">$</span>de_uuid</span>[<span class="pl-s">'id'</span>])) {
-        <span class="pl-s1"><span class="pl-c1">$</span>player_profile</span> = curl_get_https(<span class="pl-s">'https://sessionserver.mojang.com/session/minecraft/profile/'</span> . <span class="pl-s1"><span class="pl-c1">$</span>de_uuid</span>[<span class="pl-s">'id'</span>]);
-        <span class="pl-s1"><span class="pl-c1">$</span>de_profile</span> = json_decode(<span class="pl-s1"><span class="pl-c1">$</span>player_profile</span>, <span class="pl-c1">true</span>);
+    <span class="pl-k">if</span> (!<span class="pl-en">is_null</span>(<span class="pl-s1"><span class="pl-c1">$</span>de_uuid</span>[<span class="pl-s">'<span class="pl-s">id</span>'</span>])) {
+        <span class="pl-s1"><span class="pl-c1">$</span>player_profile</span> = <span class="pl-en">curl_get_https</span>(<span class="pl-s">'<span class="pl-s">https://sessionserver.mojang.com/session/minecraft/profile/</span>'</span> . <span class="pl-s1"><span class="pl-c1">$</span>de_uuid</span>[<span class="pl-s">'<span class="pl-s">id</span>'</span>]);
+        <span class="pl-s1"><span class="pl-c1">$</span>de_profile</span> = <span class="pl-en">json_decode</span>(<span class="pl-s1"><span class="pl-c1">$</span>player_profile</span>, <span class="pl-c1">true</span>);
 
-        <span class="pl-s1"><span class="pl-c1">$</span>de_textures</span> = json_decode(base64_decode(<span class="pl-s1"><span class="pl-c1">$</span>de_profile</span>[<span class="pl-s">'properties'</span>][<span class="pl-c1">0</span>][<span class="pl-s">'value'</span>]), <span class="pl-c1">true</span>);
+        <span class="pl-s1"><span class="pl-c1">$</span>de_textures</span> = <span class="pl-en">json_decode</span>(<span class="pl-en">base64_decode</span>(<span class="pl-s1"><span class="pl-c1">$</span>de_profile</span>[<span class="pl-s">'<span class="pl-s">properties</span>'</span>][<span class="pl-c1">0</span>][<span class="pl-s">'<span class="pl-s">value</span>'</span>]), <span class="pl-c1">true</span>);
 
         <span class="pl-c">// 检查是否需要处理头像</span>
-        <span class="pl-s1"><span class="pl-c1">$</span>include_avatar</span> = isset(<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'avatar'</span>]) ? (<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'avatar'</span>] == <span class="pl-s">'true'</span>) : <span class="pl-c1">false</span>;
+        <span class="pl-s1"><span class="pl-c1">$</span>include_avatar</span> = <span class="pl-en">isset</span>(<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'<span class="pl-s">avatar</span>'</span>]) ? (<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'<span class="pl-s">avatar</span>'</span>] == <span class="pl-s">'<span class="pl-s">true</span>'</span>) : <span class="pl-c1">false</span>;
 
         <span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>include_avatar</span>) {
             <span class="pl-c">// 设置头像大小，默认 64px</span>
-            <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span> = isset(<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'avatarsize'</span>]) ? <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'avatarsize'</span>] : <span class="pl-c1">64</span>;
+            <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span> = <span class="pl-en">isset</span>(<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'<span class="pl-s">avatarsize</span>'</span>]) ? <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_GET</span></span>[<span class="pl-s">'<span class="pl-s">avatarsize</span>'</span>] : <span class="pl-c1">64</span>;
 
             <span class="pl-c">// 创建头像</span>
-            <span class="pl-s1"><span class="pl-c1">$</span>copyskin</span> = imagecreatetruecolor(<span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>);
-            <span class="pl-s1"><span class="pl-c1">$</span>originalskin</span> = imagecreatefromstring(file_get_contents(<span class="pl-s1"><span class="pl-c1">$</span>de_textures</span>[<span class="pl-s">'textures'</span>][<span class="pl-s">'SKIN'</span>][<span class="pl-s">'url'</span>]));
+            <span class="pl-s1"><span class="pl-c1">$</span>copyskin</span> = <span class="pl-en">imagecreatetruecolor</span>(<span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>);
+            <span class="pl-s1"><span class="pl-c1">$</span>originalskin</span> = <span class="pl-en">imagecreatefromstring</span>(<span class="pl-en">file_get_contents</span>(<span class="pl-s1"><span class="pl-c1">$</span>de_textures</span>[<span class="pl-s">'<span class="pl-s">textures</span>'</span>][<span class="pl-s">'<span class="pl-s">SKIN</span>'</span>][<span class="pl-s">'<span class="pl-s">url</span>'</span>]));
 
             <span class="pl-c">// 图像修改</span>
             <span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span> &amp;&amp; <span class="pl-s1"><span class="pl-c1">$</span>originalskin</span>) {
-                imagecopyresized(<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span>, <span class="pl-s1"><span class="pl-c1">$</span>originalskin</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">8</span>, <span class="pl-c1">8</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-c1">8</span>, <span class="pl-c1">8</span>);
-                imagecopyresized(<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span>, <span class="pl-s1"><span class="pl-c1">$</span>originalskin</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">40</span>, <span class="pl-c1">8</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-c1">8</span>, <span class="pl-c1">8</span>);
+                <span class="pl-en">imagecopyresized</span>(<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span>, <span class="pl-s1"><span class="pl-c1">$</span>originalskin</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">8</span>, <span class="pl-c1">8</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-c1">8</span>, <span class="pl-c1">8</span>);
+                <span class="pl-en">imagecopyresized</span>(<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span>, <span class="pl-s1"><span class="pl-c1">$</span>originalskin</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">40</span>, <span class="pl-c1">8</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-s1"><span class="pl-c1">$</span>size_avatar</span>, <span class="pl-c1">8</span>, <span class="pl-c1">8</span>);
 
                 <span class="pl-c">// 保存头像</span>
-                <span class="pl-s1"><span class="pl-c1">$</span>avatar_filename</span> = uniqid(rand(), <span class="pl-c1">true</span>) . "<span class="pl-s">.png</span>";
-                <span class="pl-k">if</span> (imagepng(<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span>, <span class="pl-s1"><span class="pl-c1">$</span>avatar_filename</span>)) {
+                <span class="pl-s1"><span class="pl-c1">$</span>avatar_filename</span> = <span class="pl-en">uniqid</span>(<span class="pl-en">rand</span>(), <span class="pl-c1">true</span>) . <span class="pl-s">"<span class="pl-s">.png</span>"</span>;
+                <span class="pl-k">if</span> (<span class="pl-en">imagepng</span>(<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span>, <span class="pl-s1"><span class="pl-c1">$</span>avatar_filename</span>)) {
                     <span class="pl-c">// 调用接口上传图片</span>
-                    <span class="pl-s1"><span class="pl-c1">$</span>result</span> = upload_image(<span class="pl-s1"><span class="pl-c1">$</span>avatar_filename</span>);
+                    <span class="pl-s1"><span class="pl-c1">$</span>result</span> = <span class="pl-en">upload_image</span>(<span class="pl-s1"><span class="pl-c1">$</span>avatar_filename</span>);
 
-                    <span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>result</span> &amp;&amp; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'code'</span>] == <span class="pl-c1">200</span> &amp;&amp; isset(<span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'data'</span>][<span class="pl-s">'url'</span>])) {
+                    <span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>result</span> &amp;&amp; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>] == <span class="pl-c1">200</span> &amp;&amp; <span class="pl-en">isset</span>(<span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">data</span>'</span>][<span class="pl-s">'<span class="pl-s">url</span>'</span>])) {
                         <span class="pl-c">// $json_data['avatar'] = $result['data']['url']; // 另一种方法</span>
                     } <span class="pl-k">else</span> {
-                        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'code'</span>] = <span class="pl-c1">500</span>;
-                        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'avatar'</span>] = "<span class="pl-s">头像上传失败</span>";
-                        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'time'</span>] = time();
+                        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>] = <span class="pl-c1">500</span>;
+                        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">avatar</span>'</span>] = <span class="pl-s">"<span class="pl-s">头像上传失败</span>"</span>;
+                        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">time</span>'</span>] = <span class="pl-en">time</span>();
                     }
 
                     <span class="pl-c">// 删除临时文件</span>
-                    unlink(<span class="pl-s1"><span class="pl-c1">$</span>avatar_filename</span>);
+                    <span class="pl-en">unlink</span>(<span class="pl-s1"><span class="pl-c1">$</span>avatar_filename</span>);
                 } <span class="pl-k">else</span> {
-                    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'code'</span>] = <span class="pl-c1">500</span>;
-                    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'avatar'</span>] = "<span class="pl-s">头像保存失败</span>";
-                    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'time'</span>] = time();
+                    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>] = <span class="pl-c1">500</span>;
+                    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">avatar</span>'</span>] = <span class="pl-s">"<span class="pl-s">头像保存失败</span>"</span>;
+                    <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">time</span>'</span>] = <span class="pl-en">time</span>();
                 }
 
                 <span class="pl-c">// 销毁图像资源</span>
-                imagedestroy(<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span>);
-                imagedestroy(<span class="pl-s1"><span class="pl-c1">$</span>originalskin</span>);
+                <span class="pl-en">imagedestroy</span>(<span class="pl-s1"><span class="pl-c1">$</span>copyskin</span>);
+                <span class="pl-en">imagedestroy</span>(<span class="pl-s1"><span class="pl-c1">$</span>originalskin</span>);
             } <span class="pl-k">else</span> {
-                <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'code'</span>] = <span class="pl-c1">500</span>;
-                <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'avatar'</span>] = "<span class="pl-s">图像资源创建失败</span>";
-                <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'time'</span>] = time();
+                <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>] = <span class="pl-c1">500</span>;
+                <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">avatar</span>'</span>] = <span class="pl-s">"<span class="pl-s">图像资源创建失败</span>"</span>;
+                <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">time</span>'</span>] = <span class="pl-en">time</span>();
             }
         }
 
         <span class="pl-c">// 构建 JSON 数据</span>
-        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'code'</span>] = <span class="pl-c1">200</span>;
-        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'msg'</span>] = "<span class="pl-s">皮肤请求成功</span>";
-        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'time'</span>] = time();
+        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>] = <span class="pl-c1">200</span>;
+        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">msg</span>'</span>] = <span class="pl-s">"<span class="pl-s">皮肤请求成功</span>"</span>;
+        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">time</span>'</span>] = <span class="pl-en">time</span>();
 
-        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'data'</span>] = <span class="pl-en">array</span>(
-            <span class="pl-s">'skin_url'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>de_textures</span>[<span class="pl-s">'textures'</span>][<span class="pl-s">'SKIN'</span>][<span class="pl-s">'url'</span>],
-            <span class="pl-s">'cape_url'</span> =&gt; !empty(<span class="pl-s1"><span class="pl-c1">$</span>de_textures</span>[<span class="pl-s">'textures'</span>][<span class="pl-s">'CAPE'</span>][<span class="pl-s">'url'</span>]) ? <span class="pl-s1"><span class="pl-c1">$</span>de_textures</span>[<span class="pl-s">'textures'</span>][<span class="pl-s">'CAPE'</span>][<span class="pl-s">'url'</span>] : <span class="pl-s">''</span>
+        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">data</span>'</span>] = <span class="pl-en">array</span>(
+            <span class="pl-s">'<span class="pl-s">skin_url</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>de_textures</span>[<span class="pl-s">'<span class="pl-s">textures</span>'</span>][<span class="pl-s">'<span class="pl-s">SKIN</span>'</span>][<span class="pl-s">'<span class="pl-s">url</span>'</span>],
+            <span class="pl-s">'<span class="pl-s">cape_url</span>'</span> =&gt; !<span class="pl-en">empty</span>(<span class="pl-s1"><span class="pl-c1">$</span>de_textures</span>[<span class="pl-s">'<span class="pl-s">textures</span>'</span>][<span class="pl-s">'<span class="pl-s">CAPE</span>'</span>][<span class="pl-s">'<span class="pl-s">url</span>'</span>]) ? <span class="pl-s1"><span class="pl-c1">$</span>de_textures</span>[<span class="pl-s">'<span class="pl-s">textures</span>'</span>][<span class="pl-s">'<span class="pl-s">CAPE</span>'</span>][<span class="pl-s">'<span class="pl-s">url</span>'</span>] : <span class="pl-s">''</span>
         );
 
-        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'avatar'</span>] = <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'data'</span>];
+        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">avatar</span>'</span>] = <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">data</span>'</span>];
     } <span class="pl-k">else</span> {
-        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'code'</span>] = <span class="pl-c1">500</span>;
-        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'msg'</span>] = "<span class="pl-s">无法通过用户名获取 UUID</span>";
-        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'time'</span>] = time();
+        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>] = <span class="pl-c1">500</span>;
+        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">msg</span>'</span>] = <span class="pl-s">"<span class="pl-s">无法通过用户名获取 UUID</span>"</span>;
+        <span class="pl-s1"><span class="pl-c1">$</span>json_data</span>[<span class="pl-s">'<span class="pl-s">time</span>'</span>] = <span class="pl-en">time</span>();
     }
 }
 
 <span class="pl-c">// 输出 JSON 数据</span>
-header(<span class="pl-s">'Content-Type: application/json'</span>);
-<span class="pl-k">echo</span> json_encode(<span class="pl-s1"><span class="pl-c1">$</span>json_data</span>);
+<span class="pl-en">header</span>(<span class="pl-s">'<span class="pl-s">Content-Type: application/json</span>'</span>);
+<span class="pl-k">echo</span> <span class="pl-en">json_encode</span>(<span class="pl-s1"><span class="pl-c1">$</span>json_data</span>);
 
 <span class="pl-c">// 网络请求函数</span>
 <span class="pl-k">function</span> <span class="pl-en">curl_get_https</span>(<span class="pl-s1"><span class="pl-c1">$</span>url</span>) {
-    <span class="pl-s1"><span class="pl-c1">$</span>curl</span> = curl_init();
-    curl_setopt_array(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-en">array</span>(
+    <span class="pl-s1"><span class="pl-c1">$</span>curl</span> = <span class="pl-en">curl_init</span>();
+    <span class="pl-en">curl_setopt_array</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-en">array</span>(
         <span class="pl-c1">CURLOPT_URL</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>url</span>,
         <span class="pl-c1">CURLOPT_HEADER</span> =&gt; <span class="pl-c1">0</span>,
         <span class="pl-c1">CURLOPT_RETURNTRANSFER</span> =&gt; <span class="pl-c1">1</span>,
@@ -239,76 +239,76 @@ header(<span class="pl-s">'Content-Type: application/json'</span>);
         <span class="pl-c1">CURLOPT_SSL_VERIFYHOST</span> =&gt; <span class="pl-c1">2</span>, <span class="pl-c">// 设置为 2 进行严格的证书检查</span>
     ));
 
-    <span class="pl-s1"><span class="pl-c1">$</span>response</span> = curl_exec(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
+    <span class="pl-s1"><span class="pl-c1">$</span>response</span> = <span class="pl-en">curl_exec</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
 
     <span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>response</span> === <span class="pl-c1">false</span>) {
         <span class="pl-c">// 请求失败，输出错误信息</span>
-        <span class="pl-s1"><span class="pl-c1">$</span>error</span> = curl_error(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
-        curl_close(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
-        die("<span class="pl-s">Curl 失败: </span>" . <span class="pl-s1"><span class="pl-c1">$</span>error</span>);
+        <span class="pl-s1"><span class="pl-c1">$</span>error</span> = <span class="pl-en">curl_error</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
+        <span class="pl-en">curl_close</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
+        <span class="pl-en">die</span>(<span class="pl-s">"<span class="pl-s">Curl 失败: </span>"</span> . <span class="pl-s1"><span class="pl-c1">$</span>error</span>);
     }
 
-    <span class="pl-s1"><span class="pl-c1">$</span>httpCode</span> = curl_getinfo(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLINFO_HTTP_CODE</span>);
+    <span class="pl-s1"><span class="pl-c1">$</span>httpCode</span> = <span class="pl-en">curl_getinfo</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLINFO_HTTP_CODE</span>);
     <span class="pl-k">if</span> (<span class="pl-s1"><span class="pl-c1">$</span>httpCode</span> &gt;= <span class="pl-c1">400</span>) {
         <span class="pl-c">// HTTP 错误码处理</span>
-        curl_close(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
-        die("<span class="pl-s">HTTP 请求失败，代码 </span>{<span class="pl-s1"><span class="pl-c1">$</span>httpCode</span>}");
+        <span class="pl-en">curl_close</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
+        <span class="pl-en">die</span>(<span class="pl-s">"<span class="pl-s">HTTP 请求失败，代码 </span>{<span class="pl-s1"><span class="pl-c1">$</span>httpCode</span>}"</span>);
     }
 
-    curl_close(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
+    <span class="pl-en">curl_close</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
     <span class="pl-k">return</span> <span class="pl-s1"><span class="pl-c1">$</span>response</span>;
 }
 
 <span class="pl-c">// 上传图片函数</span>
 <span class="pl-k">function</span> <span class="pl-en">upload_image</span>(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>) {
     <span class="pl-c">// 接口地址</span>
-    <span class="pl-s1"><span class="pl-c1">$</span>api_url</span> = "<span class="pl-s">https://imgtp.com/api/upload</span>";
+    <span class="pl-s1"><span class="pl-c1">$</span>api_url</span> = <span class="pl-s">"<span class="pl-s">https://imgtp.com/api/upload</span>"</span>;
 
     <span class="pl-c">// 设置请求头部</span>
     <span class="pl-s1"><span class="pl-c1">$</span>headers</span> = <span class="pl-en">array</span>(
-        "<span class="pl-s">token: </span>" <span class="pl-c">// imgtp.com API 的 token 为空则游客上传</span>
+        <span class="pl-s">"<span class="pl-s">token: </span>"</span> // imgtp.com <span class="pl-c1">API</span> 的 token 为空则游客上传
     );
 
     <span class="pl-c">// 构建POST请求数据</span>
     <span class="pl-s1"><span class="pl-c1">$</span>post_data</span> = <span class="pl-en">array</span>(
-        <span class="pl-s">'image'</span> =&gt; <span class="pl-k">new</span> <span class="pl-v">CURLFile</span>(realpath(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>))
+        <span class="pl-s">'<span class="pl-s">image</span>'</span> =&gt; <span class="pl-k">new</span> <span class="pl-v">CURLFile</span>(<span class="pl-en">realpath</span>(<span class="pl-s1"><span class="pl-c1">$</span>filename</span>))
     );
 
     <span class="pl-c">// 初始化CURL</span>
-    <span class="pl-s1"><span class="pl-c1">$</span>curl</span> = curl_init();
+    <span class="pl-s1"><span class="pl-c1">$</span>curl</span> = <span class="pl-en">curl_init</span>();
 
     <span class="pl-c">// 设置请求URL</span>
-    curl_setopt(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_URL</span>, <span class="pl-s1"><span class="pl-c1">$</span>api_url</span>);
+    <span class="pl-en">curl_setopt</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_URL</span>, <span class="pl-s1"><span class="pl-c1">$</span>api_url</span>);
 
     <span class="pl-c">// 设置POST请求</span>
-    curl_setopt(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_HTTPHEADER</span>, <span class="pl-s1"><span class="pl-c1">$</span>headers</span>);
-    curl_setopt(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_POST</span>, <span class="pl-c1">true</span>);
-    curl_setopt(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_POSTFIELDS</span>, <span class="pl-s1"><span class="pl-c1">$</span>post_data</span>);
-    curl_setopt(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_RETURNTRANSFER</span>, <span class="pl-c1">true</span>);
+    <span class="pl-en">curl_setopt</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_HTTPHEADER</span>, <span class="pl-s1"><span class="pl-c1">$</span>headers</span>);
+    <span class="pl-en">curl_setopt</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_POST</span>, <span class="pl-c1">true</span>);
+    <span class="pl-en">curl_setopt</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_POSTFIELDS</span>, <span class="pl-s1"><span class="pl-c1">$</span>post_data</span>);
+    <span class="pl-en">curl_setopt</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>, <span class="pl-c1">CURLOPT_RETURNTRANSFER</span>, <span class="pl-c1">true</span>);
 
     <span class="pl-c">// 执行请求</span>
-    <span class="pl-s1"><span class="pl-c1">$</span>response</span> = curl_exec(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
+    <span class="pl-s1"><span class="pl-c1">$</span>response</span> = <span class="pl-en">curl_exec</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
 
     <span class="pl-c">// 关闭CURL</span>
-    curl_close(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
+    <span class="pl-en">curl_close</span>(<span class="pl-s1"><span class="pl-c1">$</span>curl</span>);
 
     <span class="pl-c">// 解析返回的 JSON 数据</span>
-    <span class="pl-s1"><span class="pl-c1">$</span>result</span> = json_decode(<span class="pl-s1"><span class="pl-c1">$</span>response</span>, <span class="pl-c1">true</span>);
+    <span class="pl-s1"><span class="pl-c1">$</span>result</span> = <span class="pl-en">json_decode</span>(<span class="pl-s1"><span class="pl-c1">$</span>response</span>, <span class="pl-c1">true</span>);
     
     <span class="pl-c">// 提取相关信息</span>
-    <span class="pl-s1"><span class="pl-c1">$</span>name</span> = <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'data'</span>][<span class="pl-s">'name'</span>];
-    <span class="pl-s1"><span class="pl-c1">$</span>url</span> = <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'data'</span>][<span class="pl-s">'url'</span>];
+    <span class="pl-s1"><span class="pl-c1">$</span>name</span> = <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">data</span>'</span>][<span class="pl-s">'<span class="pl-s">name</span>'</span>];
+    <span class="pl-s1"><span class="pl-c1">$</span>url</span> = <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">data</span>'</span>][<span class="pl-s">'<span class="pl-s">url</span>'</span>];
     
     <span class="pl-c">// 构建 JSON 数据</span>
     <span class="pl-s1"><span class="pl-c1">$</span>result</span> = <span class="pl-en">array</span>(
-        <span class="pl-s">'code'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'code'</span>],
-        <span class="pl-s">'msg'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'msg'</span>],
-        <span class="pl-s">'time'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'time'</span>],
-        <span class="pl-s">'data'</span> =&gt; <span class="pl-en">array</span>(
-            <span class="pl-s">'img_code'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'code'</span>],
-            <span class="pl-s">'img_msg'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'msg'</span>],
-            <span class="pl-s">'name'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>name</span>,
-            <span class="pl-s">'url'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>url</span>
+        <span class="pl-s">'<span class="pl-s">code</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>],
+        <span class="pl-s">'<span class="pl-s">msg</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">msg</span>'</span>],
+        <span class="pl-s">'<span class="pl-s">time</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">time</span>'</span>],
+        <span class="pl-s">'<span class="pl-s">data</span>'</span> =&gt; <span class="pl-en">array</span>(
+            <span class="pl-s">'<span class="pl-s">img_code</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">code</span>'</span>],
+            <span class="pl-s">'<span class="pl-s">img_msg</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>result</span>[<span class="pl-s">'<span class="pl-s">msg</span>'</span>],
+            <span class="pl-s">'<span class="pl-s">name</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>name</span>,
+            <span class="pl-s">'<span class="pl-s">url</span>'</span> =&gt; <span class="pl-s1"><span class="pl-c1">$</span>url</span>
         )
     );
 
