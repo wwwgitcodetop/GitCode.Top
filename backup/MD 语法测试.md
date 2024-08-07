@@ -1,5 +1,7 @@
 这个文章页面用来测试各种 Markdown 语法在 Gmeek 上的表现，无实际有用内容。
 
+`Gmeek-html<a href="https://example.com/" rel="external nofollow noopener noreferrer" target="_blank">搜索页面</a>`
+
 Here is a simple flow chart:
 
 ```mermaid
