@@ -12,13 +12,11 @@
     <script src="https://file.gitcode.top/analytics.gitcode.top/js/index.min.js" async defer></script>
 <meta name="author" content="Wu Xaici">
 <meta name="keywords" content="GitCode.Top, 博客">
-<meta name="description" content="## 介绍
-
-一个使用 Cloudflare Pages 创建的免费 URL 缩短/短链服务。">
+<meta name="description" content="一个使用 Cloudflare Pages 创建的 URL 缩短器；
+支持设置密码和管理短链、使用 Turnstile 人机验证、黑名单域名管理、跳转页面配置、多域名使用，可通过环境变量快速配置。">
 <meta property="og:title" content="使用 Cloudflare 搭建免费的短链系统">
-<meta property="og:description" content="## 介绍
-
-一个使用 Cloudflare Pages 创建的免费 URL 缩短/短链服务。">
+<meta property="og:description" content="一个使用 Cloudflare Pages 创建的 URL 缩短器；
+支持设置密码和管理短链、使用 Turnstile 人机验证、黑名单域名管理、跳转页面配置、多域名使用，可通过环境变量快速配置。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="//post/1.html">
 <meta property="og:image" content="https://file.gitcode.top/image/avatar.png">
@@ -71,52 +69,56 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h2>介绍</h2>
-<p>一个使用 Cloudflare Pages 创建的免费 URL 缩短/短链服务。</p>
+<div class="markdown-body" id="postBody"><p>一个使用 Cloudflare Pages 创建的 URL 缩短器；<br>
+支持设置密码和管理短链、使用 Turnstile 人机验证、黑名单域名管理、跳转页面配置、多域名使用，可通过环境变量快速配置。</p>
+<p>可靠的短链示例：<a href="https://c1n.top/" rel="nofollow">https://c1n.top/</a></p>
 <details>
-  <summary>《点击这里查看图片》</summary>
-<p><img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f325f342e706e67.png"></p>
-<p><img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f325f352e706e67.png"></p>
+  <summary>点击这里查看演示图片</summary>
+<p>可根据浏览器设置自动切换光亮、暗黑主题。</p>
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f153bcaf46fe60c286ff9c7a18ce5979f237421a1a313c4168265a2ebe876242/68747470733a2f2f73322e6c6f6c692e6e65742f323032342f30382f32352f59524a7746563278754270494b5a622e706e67"><img src="https://camo.githubusercontent.com/f153bcaf46fe60c286ff9c7a18ce5979f237421a1a313c4168265a2ebe876242/68747470733a2f2f73322e6c6f6c692e6e65742f323032342f30382f32352f59524a7746563278754270494b5a622e706e67" data-canonical-src="https://s2.loli.net/2024/08/25/YRJwFV2xuBpIKZb.png" style="max-width: 100%;"></a>
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/337fc1699eda695efdb6e44968936f2570ac67771817ad0a940ccad0eea77079/68747470733a2f2f73322e6c6f6c692e6e65742f323032342f30382f32352f4658686c69776e5643426b316641652e706e67"><img src="https://camo.githubusercontent.com/337fc1699eda695efdb6e44968936f2570ac67771817ad0a940ccad0eea77079/68747470733a2f2f73322e6c6f6c692e6e65742f323032342f30382f32352f4658686c69776e5643426b316641652e706e67" data-canonical-src="https://s2.loli.net/2024/08/25/FXhliwnVCBk1fAe.png" style="max-width: 100%;"></a>
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d7dc7034e6af75193d45b14a3753e88377e6b9c3f9fd24156e56dd6458362091/68747470733a2f2f73322e6c6f6c692e6e65742f323032342f30382f32352f705568514f474d577453366f526c622e706e67"><img src="https://camo.githubusercontent.com/d7dc7034e6af75193d45b14a3753e88377e6b9c3f9fd24156e56dd6458362091/68747470733a2f2f73322e6c6f6c692e6e65742f323032342f30382f32352f705568514f474d577453366f526c622e706e67" data-canonical-src="https://s2.loli.net/2024/08/25/pUhQOGMWtS6oRlb.png" style="max-width: 100%;"></a>
 </details>
 <h3>利用 Cloudflare Pages 部署</h3>
 <ol>
 <li>
-<p>在GitHub Fork 分叉项目 : <a href="https://github.com/molikai-work/short">https://github.com/molikai-work/short</a>。</p>
+<p>Fork 分叉本项目 : <a href="https://github.com/molikai-work/short">https://github.com/molikai-work/short</a>。</p>
 </li>
 <li>
 <p>登录到<a href="https://dash.cloudflare.com/" rel="nofollow">Cloudflare</a>控制台。</p>
 </li>
 <li>
-<p>在帐户主页中，选择 <a href="https://dash.cloudflare.com/?to=/:account/workers-and-pages" rel="nofollow">Workers 和 Pages</a> -&gt; <code class="notranslate"> 创建应用程序</code> -&gt; <code class="notranslate">Pages</code> -&gt; <code class="notranslate">连接到 Git</code>。（Cloudflare 支持多种语言，推荐将语言显示设置为与本教程相同的语言）</p>
+<p>在帐户主页中，选择<a href="https://dash.cloudflare.com/?to=/:account/workers-and-pages" rel="nofollow">Workers 和 Pages</a>-&gt; <code class="notranslate">创建应用程序</code> -&gt; <code class="notranslate">Pages</code> -&gt; <code class="notranslate">连接到 Git</code>。（Cloudflare 支持多种语言，推荐将语言显示设置为与本教程相同的语言）</p>
 </li>
 <li>
 <p>选择你创建的项目存储库，在 <code class="notranslate">设置构建和部署</code> 部分中，全部默认即可，不需要修改框架预设、构建命令等内容。</p>
 </li>
 <li>
-<p>点击 <code class="notranslate">保存并部署</code> ，稍等片刻，短链服务就部署好了。</p>
+<p>点击 <code class="notranslate">保存并部署</code> ，稍等片刻等待网站构建完成。</p>
 </li>
 </ol>
 <details>
   <summary>6. 点击这里查看创建数据库操作的图示</summary>
 <p>(1) 进入 Cloudflare 的控制台，查看左侧侧边栏，选择 <code class="notranslate">Workers 和 Pages</code> 展开菜单后再选择 <a href="https://dash.cloudflare.com/?to=/:account/workers/d1" rel="nofollow">D1</a>：<br>
-<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f342e706e67.png"></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/de6884ca6b4a968de0a6b072ee061d1d5c400eaf12f71744544feb37e2fd2643/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f363837343734373037333361326632663634373736633265373036313637363537333265363436353736326636343666363336353266333432653730366536372e706e67"><img src="https://camo.githubusercontent.com/de6884ca6b4a968de0a6b072ee061d1d5c400eaf12f71744544feb37e2fd2643/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f363837343734373037333361326632663634373736633265373036313637363537333265363436353736326636343666363336353266333432653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f342e706e67.png" style="max-width: 100%;"></a></p>
 <p>(2) 在 <code class="notranslate">D1</code> 页面点击右上角的 <code class="notranslate">创建数据库</code> 以打开创建数据库菜单：<br>
-<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f312e706e67.png"></p>
-<p><img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f322e706e67.png"></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9649251400667357a5c6dcacfd861319f282515b4d8625f468376480b606ab6a/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333132653730366536372e706e67"><img src="https://camo.githubusercontent.com/9649251400667357a5c6dcacfd861319f282515b4d8625f468376480b606ab6a/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333132653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f312e706e67.png" style="max-width: 100%;"></a></p>
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cac1b3305e38d846e3313cfe3e93eaa5bf399340a8bb8f88eab09cd2e39c29f0/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333232653730366536372e706e67"><img src="https://camo.githubusercontent.com/cac1b3305e38d846e3313cfe3e93eaa5bf399340a8bb8f88eab09cd2e39c29f0/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333232653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f322e706e67.png" style="max-width: 100%;"></a>
 <p>(3) 填写 <code class="notranslate">数据库名称</code> 输入框，名称随意，确保绑定是为同一个数据库即可，下方的位置选项可不选（这里已经填好，示范）：<br>
-<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f332e706e67.png"></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7782aa7bbfd67f422dc39e8d0d9a7eb1940e2b0de0dbd3dd93e7072d497091d4/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333332653730366536372e706e67"><img src="https://camo.githubusercontent.com/7782aa7bbfd67f422dc39e8d0d9a7eb1940e2b0de0dbd3dd93e7072d497091d4/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333332653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f332e706e67.png" style="max-width: 100%;"></a></p>
 <p>(4) 完成数据库创建，接下来在数据库的操作页面，请点击 <code class="notranslate">控制台</code>，并查看主部署教程的下一步（第7步）：<br>
-<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f342e706e67.png"></p>
-<p><img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f352e706e67.png"></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e840671a7dff31f481c984fd9b6fb060ceababc440ec7d128a92e593bd84512d/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333432653730366536372e706e67"><img src="https://camo.githubusercontent.com/e840671a7dff31f481c984fd9b6fb060ceababc440ec7d128a92e593bd84512d/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333432653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f342e706e67.png" style="max-width: 100%;"></a></p>
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/da87dd7e518adfd252141aa2a6646a2540ac106ba92edf7147d48f695c5e6d60/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333532653730366536372e706e67"><img src="https://camo.githubusercontent.com/da87dd7e518adfd252141aa2a6646a2540ac106ba92edf7147d48f695c5e6d60/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f36383734373437303733336132663266363437373663326537303631363736353733326536343635373632663634366636333635326633343566333532653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f345f352e706e67.png" style="max-width: 100%;"></a>
 </details>
 <ol start="7">
-<li>在数据库控制台输入框粘贴下面语句（或使用根目录的 <code class="notranslate">short.sql</code> 文件）执行 <code class="notranslate">SQLite</code> 的命令创建表执行即可。</li>
+<li>在数据库控制台输入框粘贴下面语句执行 <code class="notranslate">SQLite</code> 的命令创建表执行即可。</li>
 </ol>
 <div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">DROP</span> <span class="pl-k">TABLE</span> IF EXISTS links;
 <span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS links (
   <span class="pl-s"><span class="pl-pds">`</span>id<span class="pl-pds">`</span></span> <span class="pl-k">integer</span> <span class="pl-k">PRIMARY KEY</span> <span class="pl-k">NOT NULL</span>,
   <span class="pl-s"><span class="pl-pds">`</span>url<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
   <span class="pl-s"><span class="pl-pds">`</span>slug<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
+  <span class="pl-s"><span class="pl-pds">`</span>password<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
   <span class="pl-s"><span class="pl-pds">`</span>email<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
   <span class="pl-s"><span class="pl-pds">`</span>ua<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
   <span class="pl-s"><span class="pl-pds">`</span>ip<span class="pl-pds">`</span></span> <span class="pl-k">text</span>,
@@ -141,22 +143,21 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
   <span class="pl-s"><span class="pl-pds">`</span>id<span class="pl-pds">`</span></span> <span class="pl-k">INTEGER</span> <span class="pl-k">PRIMARY KEY</span> <span class="pl-k">NOT NULL</span>,
   <span class="pl-s"><span class="pl-pds">`</span>url<span class="pl-pds">`</span></span> <span class="pl-k">TEXT</span>,
   <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> <span class="pl-k">TEXT</span> DEFAULT (strftime(<span class="pl-s"><span class="pl-pds">'</span>%Y-%m-%dT%H:%M:%SZ<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>now<span class="pl-pds">'</span></span>))
-
 );
 <span class="pl-k">CREATE</span> <span class="pl-k">UNIQUE INDEX</span> <span class="pl-en">links_index</span> <span class="pl-k">ON</span> links(slug);
 <span class="pl-k">CREATE</span> <span class="pl-k">INDEX</span> <span class="pl-en">logs_index</span> <span class="pl-k">ON</span> logs(slug);
 <span class="pl-k">CREATE</span> <span class="pl-k">UNIQUE INDEX</span> <span class="pl-en">banUrl_index</span> <span class="pl-k">ON</span> banUrl(url);</pre></div>
 <ol start="8">
-<li>选择部署完成项目，前往 Cloudflare Pages 项目控制面板依次点击<code class="notranslate">设置</code>-&gt;<code class="notranslate">函数</code>-&gt;<code class="notranslate">D1 数据库绑定</code>-&gt;<code class="notranslate">编辑绑定</code>-&gt;添加变量，变量名称填写：<code class="notranslate">DB</code> -&gt; D1 数据库选择 <code class="notranslate">你刚刚创建好的 D1 数据库</code></li>
+<li>选择部署完成项目，前往 Cloudflare Pages 项目控制面板依次点击 <code class="notranslate">设置</code> -&gt; <code class="notranslate">函数</code> -&gt; <code class="notranslate">D1 数据库绑定</code> -&gt; <code class="notranslate">编辑绑定</code> -&gt;添加变量，变量名称填写：<code class="notranslate">DB</code> -&gt; D1 数据库选择 <code class="notranslate">你刚刚创建好的 D1 数据库</code></li>
 </ol>
 <details>
   <summary>《点击这里查看绑定操作的图示》</summary>
 <p>(1) 打开具体项目的控制台：<br>
-<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f312e706e67.png"></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2559d0523f9705a0507192b0646ed7cf877fc95bd3f946d6fbdff65f7e72b0b8/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f363837343734373037333361326632663634373736633265373036313637363537333265363436353736326636343666363336353266333132653730366536372e706e67"><img src="https://camo.githubusercontent.com/2559d0523f9705a0507192b0646ed7cf877fc95bd3f946d6fbdff65f7e72b0b8/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f363837343734373037333361326632663634373736633265373036313637363537333265363436353736326636343666363336353266333132653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f312e706e67.png" style="max-width: 100%;"></a></p>
 <p>(2) 进入设置找到函数选项并向下拉：<br>
-<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f322e706e67.png"></p>
-<p>(3) 找到D1数据库绑定，编辑，变量名称填“DB”，D1数据库选择刚刚创建的数据库（这里已经填好，示范）：<br>
-<img src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f332e706e67.png"></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8a1294a3970eaf9c4aceaf45aed2f31d4e311f17da3d266d76167ee5604dc418/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f363837343734373037333361326632663634373736633265373036313637363537333265363436353736326636343666363336353266333232653730366536372e706e67"><img src="https://camo.githubusercontent.com/8a1294a3970eaf9c4aceaf45aed2f31d4e311f17da3d266d76167ee5604dc418/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f363837343734373037333361326632663634373736633265373036313637363537333265363436353736326636343666363336353266333232653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f322e706e67.png" style="max-width: 100%;"></a></p>
+<p>(3) 找到D1数据库绑定，编辑，变量名称填 <code class="notranslate">DB</code>，D1 数据库选择刚刚创建的数据库（这里已经填好，示范）：<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ba113396108dbb7dcdbf006a508e6eb716ce8d303b39a6f6fa20423cb9268de8/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f363837343734373037333361326632663634373736633265373036313637363537333265363436353736326636343666363336353266333332653730366536372e706e67"><img src="https://camo.githubusercontent.com/ba113396108dbb7dcdbf006a508e6eb716ce8d303b39a6f6fa20423cb9268de8/68747470733a2f2f66696c652e676974636f64652e746f702f646f63652f6973737565732d312f363837343734373037333361326632663634373736633265373036313637363537333265363436353736326636343666363336353266333332653730366536372e706e67" data-canonical-src="https://file.gitcode.top/doce/issues-1/68747470733a2f2f64776c2e70616765732e6465762f646f63652f332e706e67.png" style="max-width: 100%;"></a></p>
 </details>
 <ol start="9">
 <li>重新部署项目以刷新数据，完成。</li>
@@ -164,9 +165,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h3>配置数据表</h3>
 <p>你可以向 Cloudflare 的 D1 数据库的已创建短链数据库中的 <code class="notranslate">banUrl</code> 数据表添加数据以设置黑名单域名。</p>
 <p>在此数据表中的域名均无法创建/解析短链。</p>
-<p>请直接在数据表的 <code class="notranslate">url</code> 项添加要加黑名单的一级域名，如 <code class="notranslate">example.com</code> ，其他的数据项会自动填写。</p>
-<h3>配置环境变量</h3>
-<p>你可以在 Cloudflare Pages 项目控制面板<code class="notranslate">设置</code>-&gt;<code class="notranslate">环境变量</code>-&gt;<code class="notranslate">制作</code>-&gt;<code class="notranslate">为生产环境定义变量</code>中配置以下环境变量。</p>
+<p>请直接在 <code class="notranslate">banUrl</code> 数据表的 <code class="notranslate">url</code> 项添加要加黑名单的一级域名，如 <code class="notranslate">example.com</code> ，其他的数据项会自动填写。</p>
+<p>这里推荐另一个项目 <a href="https://github.com/JacobLinCool/d1-manager">https://github.com/JacobLinCool/d1-manager</a>，可视化 Cloudflare 的 D1 数据库的操作，更方便的设置和备份数据表。</p>
+<h3>配置环境变量与信息</h3>
+<p>你可以在 Cloudflare Pages 项目控制面板 <code class="notranslate">设置</code> -&gt; <code class="notranslate">环境变量</code> -&gt; <code class="notranslate">制作</code> -&gt; <code class="notranslate">为生产环境定义变量</code> 中配置以下环境变量。</p>
 <p>所有环境变量全部都是可选配置的，不配置则执行默认的相关函数，不影响正常使用。</p>
 <markdown-accessiblity-table><table role="table">
 <thead>
@@ -182,11 +184,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <td>SHORT_DOMAINS</td>
 <td>example.com</td>
 <td>是的</td>
-<td>短链生成后的显示域名（主域名），没有变量则默认自动获取当前域名</td>
+<td>短链生成后的显示域名，没有变量则默认自动获取当前域名</td>
 </tr>
 <tr>
 <td>DIRECT_DOMAINS</td>
-<td>example.com,example.org</td>
+<td>example.com</td>
 <td>是的</td>
 <td>直链域名，设置后使用该域名访问则直接 302 重定向跳转，而不是默认的 JS 跳转，多个用逗号分割，没有变量则默认不启用直链跳转</td>
 </tr>
@@ -196,65 +198,80 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <td>是的</td>
 <td>允许解析目标地址的域名白名单，设置后只能使用该域名解析目标地址，否则拒绝请求，多个用逗号分割，没有变量则默认不启用允许解析域名白名单</td>
 </tr>
+<tr>
+<td>TURNSTILE_SECRET_KEY</td>
+<td>0x2Ba5_qET35AIiYUO-ZGHtaHc</td>
+<td>是的</td>
+<td>Turnstile 的密钥，没有变量则默认不启用 Turnstile 验证</td>
+</tr>
 </tbody>
 </table></markdown-accessiblity-table>
+<p>你可以在项目 <code class="notranslate">functions</code> 文件夹下找到 <code class="notranslate">utils.js</code> 文件，可以在这里浏览通用函数和部分设置信息，例如在后端的短链的显示名称。</p>
+<h3>配置 Turnstile 验证</h3>
+<p>如果未在环境变量中配置关于 Turnstile 密钥的环境变量，请忽略本节信息。</p>
+<p>如果你需要开启 Turnstile 验证功能，请：</p>
+<ol>
+<li>在 <a href="https://dash.cloudflare.com/?to=/:account/turnstile" rel="nofollow">Turnstile 页面</a>根据引导步骤申请获得站点密钥和密钥，然后配置环境变量 <code class="notranslate">TURNSTILE_SECRET_KEY</code> 的值为密钥内容。</li>
+<li>在项目根目录的 <code class="notranslate">index.html</code> 文件，将第 <code class="notranslate">43</code> 行的元素的 <code class="notranslate">data-sitekey</code> 属性设置为你的站点密钥。</li>
+<li>在项目 <code class="notranslate">pages</code> 目录下的 <code class="notranslate">manage.html</code> 文件，将第 <code class="notranslate">45</code> 行的元素的 <code class="notranslate">data-sitekey</code> 属性为设置你的站点密钥。</li>
+</ol>
+<p>完成。</p>
 <h3>通过 API 生成</h3>
+<p>仅限未启用 Turnstile 验证的情况下可以任意使用 API 生成。</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> POST /create</span>
-curl -X POST -H <span class="pl-s"><span class="pl-pds">"</span>Content-Type: application/json<span class="pl-pds">"</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"url":"https://example.com"}<span class="pl-pds">'</span></span> https://c1n.top/create
+curl -X POST -H <span class="pl-s"><span class="pl-pds">"</span>Content-Type: application/json<span class="pl-pds">"</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"url":"https://example.com/"}<span class="pl-pds">'</span></span> https://example.com/create
 
-<span class="pl-c"><span class="pl-c">#</span> 指定 slug</span>
-curl -X POST -H <span class="pl-s"><span class="pl-pds">"</span>Content-Type: application/json<span class="pl-pds">"</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"url":"https://example.com","slug":"1example"}<span class="pl-pds">'</span></span> https://c1n.top/create
-
-<span class="pl-c"><span class="pl-c">#</span> 指定 email</span>
-curl -X POST -H <span class="pl-s"><span class="pl-pds">"</span>Content-Type: application/json<span class="pl-pds">"</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"url":"https://example.com","email":"info@example.com"}<span class="pl-pds">'</span></span> https://c1n.top/create
+<span class="pl-c"><span class="pl-c">#</span> 指定 slug，还支持 email、password</span>
+curl -X POST -H <span class="pl-s"><span class="pl-pds">"</span>Content-Type: application/json<span class="pl-pds">"</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"url":"https://example.com/","slug":"example"}<span class="pl-pds">'</span></span> https://example.com/create
 </pre></div>
 <blockquote>
 <p>响应:</p>
 </blockquote>
 <div class="highlight highlight-source-json"><pre class="notranslate">{
-  <span class="pl-ent">"slug"</span>: <span class="pl-s"><span class="pl-pds">"</span>1example<span class="pl-pds">"</span></span>,
-  <span class="pl-ent">"link"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://c1n.top/1example<span class="pl-pds">"</span></span>
+    <span class="pl-ent">"code"</span>: <span class="pl-c1">200</span>,
+    <span class="pl-ent">"msg"</span>: <span class="pl-s"><span class="pl-pds">"</span>success<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"time"</span>: <span class="pl-c1">1717431484672</span>,
+    <span class="pl-ent">"url"</span>: <span class="pl-s"><span class="pl-pds">"</span>https://example.com/<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"slug"</span>: <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"link"</span>: <span class="pl-s"><span class="pl-pds">"</span>https://example.com/example<span class="pl-pds">"</span></span>
 }</pre></div>
-<h3>信息修改</h3>
-<p>您可以修改程序页面底部的版权声明，如改为“Copyright © 2024 Example. All rights reserved.”，但还请声明/保留此程序的来源、作者及所在仓库地址。</p>
-<p>您可以快捷修改文件 <code class="notranslate">functions/[id].js</code> 中的 <code class="notranslate">shortName</code>、<code class="notranslate">htmlHead</code>和<code class="notranslate">footer</code> 及其他常量值来统一编辑短链跳转相关页面显示文本。从标有注释“统一固定内容”字样的地方开始到结束。</p>
-<p>代码中包含的隐私政策或相关文件请按照实际信息修改。</p>
 <h3>数据表解释</h3>
 <blockquote>
 <p>表 <code class="notranslate">links</code> 短链记录</p>
 </blockquote>
 <ul>
-<li><code class="notranslate">id</code> 行数据在数据表中的唯一记录 ID</li>
-<li><code class="notranslate">url</code> 短链的目标 URL</li>
-<li><code class="notranslate">slug</code> 短链对应的唯一短 ID</li>
-<li><code class="notranslate">email</code> 用户可选提交的 Email 地址</li>
-<li><code class="notranslate">ua</code> 用户的浏览器标识（注：此数据依靠客户端标头，可篡改）</li>
-<li><code class="notranslate">ip</code> 用户的 IP 地址</li>
-<li><code class="notranslate">status</code> 短链的状态，默认为“1”，“-1”或“ban”为封禁、“1”为正常、“2”或“skip”为跳过黑名单</li>
-<li><code class="notranslate">hostname</code> 用户生成短链访问的主机名</li>
-<li><code class="notranslate">create_time</code> 短链生成时间</li>
+<li>id  = 行数据在数据表中的唯一记录 ID</li>
+<li>url = 短链的目标 URL</li>
+<li>slug = 短链对应的唯一短 ID</li>
+<li>password = 短链的管理密码（SHA-256）</li>
+<li>email = 用户可选提交的 Email 地址</li>
+<li>ua = 用户的浏览器标识（注：此数据依靠客户端标头，可篡改）</li>
+<li>ip = 用户的 IP 地址</li>
+<li>status = 短链的状态，默认为 <code class="notranslate">ok</code>，<code class="notranslate">ban</code> 为封禁、<code class="notranslate">ok</code> 为正常、<code class="notranslate">skip为</code> 跳过黑名单</li>
+<li>hostname = 用户生成短链访问的主机名</li>
+<li>create_time = 短链生成时间</li>
 </ul>
 <blockquote>
 <p>表 <code class="notranslate">logs</code> 短链访问记录</p>
 </blockquote>
 <ul>
-<li><code class="notranslate">id</code> 行数据在数据表中的唯一记录 ID</li>
-<li><code class="notranslate">url</code> 访问的短链的目标 URL</li>
-<li><code class="notranslate">slug</code> 访问的短链对应的唯一短 ID</li>
-<li><code class="notranslate">referer</code> 访问短链的用户来源（注：此数据依靠客户端标头，可篡改）</li>
-<li><code class="notranslate">ua</code> 访问的用户的浏览器标识（注：此数据依靠客户端标头，可篡改）</li>
-<li><code class="notranslate">ip</code> 访问的用户的 IP 地址</li>
-<li><code class="notranslate">status</code> 访问的短链的状态，默认为“1”，“-1”或“ban”为封禁、“1”为正常、“2”或“skip”为跳过黑名单</li>
-<li><code class="notranslate">hostname</code> 用户访问短链所访问的主机名</li>
-<li><code class="notranslate">create_time</code> 用户访问短链的时间</li>
+<li>id = 行数据在数据表中的唯一记录 ID</li>
+<li>url = 访问的短链的目标 URL</li>
+<li>slug = 访问的短链对应的唯一短 ID</li>
+<li>referer = 访问短链的用户来源（注：此数据依靠客户端标头，可篡改）</li>
+<li>ua = 访问的用户的浏览器标识（注：此数据依靠客户端标头，可篡改）</li>
+<li>ip = 访问的用户的 IP 地址</li>
+<li>status = 访问的短链的状态，跟随表 <code class="notranslate">links</code> 的设置</li>
+<li>hostname = 用户访问短链所访问的主机名</li>
+<li>create_time = 用户访问短链的时间</li>
 </ul>
 <blockquote>
 <p>表 <code class="notranslate">banUrl</code> 域名黑名单</p>
 </blockquote>
 <ul>
-<li><code class="notranslate">id</code> 行数据在数据表中的唯一记录 ID</li>
-<li><code class="notranslate">url</code> 黑名单域名</li>
-<li><code class="notranslate">create_time</code> 黑名单添加时间</li>
+<li>id = 行数据在数据表中的唯一记录 ID</li>
+<li>url = 黑名单域名</li>
+<li>create_time = 黑名单添加时间</li>
 </ul></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载原创文章请标明出处，谢谢合作！本页第<span id='page_pv'></span>次查看</div>
 
